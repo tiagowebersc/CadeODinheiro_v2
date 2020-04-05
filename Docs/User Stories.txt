@@ -1,0 +1,49 @@
+— general
+I want a multi-language system
+I want to create and manage a user
+I want to configure my account’s currency
+— register
+I want to add multiple accounts to my user (wallet, banking account, credit card, meal voucher)
+I want to add expense and income categories
+I want my categories to have the possibility to include a subcategory
+I want to optionally set a budget by category
+I want to add reminders of future expenses/incomes (single or recurrent)
+— entries
+I want to register an expense/income (description, category, account, date, amount)
+I want to be able to register an expense/income with multiple categories and/or accounts if necessary
+I want to register a credit card expense and be able to split the amount in multiple expenses
+I want to transfer between accounts and if the currencies between them are different I want to input converted amount
+I want to inform my credit card payment selecting the date, entries listed in the invoice and from which account the amount will be subtracted
+— accounts statement
+I want to see by default all my entries of the current month ordered by date
+I want to be able to modify the dates filter
+I want to filter by account and/or category
+I want to see a total of expenses and incomes of the current list
+I want to export the list to excel
+I want to modify an entry in the statement
+I want to delete an entry in the statement
+— monthly summary
+I want to see a pie chart with the percentage expenditure of each category
+I want to see the expenditure of each category underneath the chart
+I want to see a bar chart with total incomes, expenses and the difference
+I want to see the detailed list of all expenses and incomes of the month
+I want to navigate between months
+— landing page
+I want to see the accounts balance
+I want to see a pie chart with the percentage of purchases of each category from the previous and current month
+I want to see the purchase amount of each category underneath the chart
+I want to see from the pie chart the purchases considered for each category
+I want to see all reminders that expire in 15 days
+— foreknowledge page
+I want to see all my future expenses/incomes taking in consideration the credit card entries and reminder for the next 6 months in a line chart by category
+I want to see the list of the items considered underneath the chart
+
+
+
+
+
+
+
+
+----------------------------------------------
+loan control?
