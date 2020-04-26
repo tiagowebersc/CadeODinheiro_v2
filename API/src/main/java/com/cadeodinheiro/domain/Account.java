@@ -1,9 +1,6 @@
 package com.cadeodinheiro.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity(name = "account")
@@ -12,9 +9,14 @@ public class Account {
     @GeneratedValue
     private Long idAccount;
 
-    // enum ??
-    @Column(length = 1)
-    private String accountType;
+    @ManyToOne
+    private User user;
+
+    @ManyToOne
+    private Currency currency;
+
+    @Column
+    private AccountType accountType;
 
     @Column(length = 60)
     private String name;

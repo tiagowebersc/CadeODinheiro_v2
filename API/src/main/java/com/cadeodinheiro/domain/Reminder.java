@@ -1,9 +1,6 @@
 package com.cadeodinheiro.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -12,6 +9,12 @@ public class Reminder {
     @Id
     @GeneratedValue
     private Long idReminder;
+
+    @ManyToOne
+    private User user;
+
+    @ManyToOne
+    private Category category;
 
     @Column(length = 100)
     private String description;
@@ -25,9 +28,8 @@ public class Reminder {
     @Column
     private Date endDate;
 
-    // enum
     @Column
-    private String reminderType;
+    private ReminderType reminderType;
 
     @Column
     private Boolean isActive;

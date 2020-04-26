@@ -1,9 +1,6 @@
 package com.cadeodinheiro.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -13,12 +10,18 @@ public class Transaction {
     @GeneratedValue
     private Long idTransaction;
 
+    @ManyToOne
+    private User user;
+
     @Column
     private Date date;
 
-    @Column
+    @Column(length = 100)
     private String description;
 
     @Column
     private BigDecimal amount;
+
+    @ManyToOne
+    private Reminder reminder;
 }

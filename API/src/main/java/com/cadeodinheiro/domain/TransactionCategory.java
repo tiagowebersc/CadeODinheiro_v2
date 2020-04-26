@@ -1,9 +1,6 @@
 package com.cadeodinheiro.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity(name = "transactionCategory")
@@ -12,9 +9,14 @@ public class TransactionCategory {
     @GeneratedValue
     private Long idTransactionCategory;
 
-    //enum
+    @ManyToOne
+    private Transaction transaction;
+
+    @ManyToOne
+    private Category category;
+
     @Column
-    private String categoryType;
+    private CategoryType categoryType;
 
     @Column
     private BigDecimal amount;

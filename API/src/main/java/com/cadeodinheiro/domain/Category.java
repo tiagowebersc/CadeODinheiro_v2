@@ -1,9 +1,6 @@
 package com.cadeodinheiro.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity(name = "category")
 public class Category {
@@ -11,12 +8,19 @@ public class Category {
     @GeneratedValue
     private Long idCategory;
 
+    @ManyToOne
+    private User user;
+
     @Column
-    private String categoryType;
+    private CategoryType categoryType;
 
     @Column(length = 60)
     private String description;
 
     @Column
     private Boolean isActive;
+
+    @ManyToOne
+    @Column(name = "upperCategory_idCategory")
+    private Category upperCategory;
 }
