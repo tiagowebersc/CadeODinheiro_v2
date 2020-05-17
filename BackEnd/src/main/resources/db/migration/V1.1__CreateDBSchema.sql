@@ -3,11 +3,11 @@
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `COD2`.`user` (
                                              `idUser` INT NOT NULL,
-                                             `login` VARCHAR(150) NOT NULL,
+                                             `username` VARCHAR(150) NOT NULL,
                                              `hashPassword` VARCHAR(60) NOT NULL,
                                              `name` VARCHAR(60) NOT NULL,
                                              PRIMARY KEY (`idUser`),
-                                             UNIQUE INDEX `login_UNIQUE` (`login` ASC))
+                                             UNIQUE INDEX `username_UNIQUE` (`username` ASC))
     ENGINE = InnoDB;
 
 
