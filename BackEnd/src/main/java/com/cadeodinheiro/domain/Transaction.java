@@ -1,27 +1,30 @@
 package com.cadeodinheiro.domain;
 
-import javax.persistence.*;
+import lombok.Data;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Column;
+import org.springframework.data.relational.core.mapping.Table;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
-@Entity(name = "transaction")
-public class Transaction {
+@Data
+@Table("transaction")
+public class Transaction extends UserDate {
     @Id
-    @GeneratedValue
+    //@GeneratedValue
     private Long idTransaction;
-
-    @ManyToOne
-    private User user;
 
     @Column
     private Date date;
 
-    @Column(length = 100)
+    //@Column(length = 100)
     private String description;
 
     @Column
     private BigDecimal amount;
 
-    @ManyToOne
+    //@ManyToOne
     private Reminder reminder;
 }

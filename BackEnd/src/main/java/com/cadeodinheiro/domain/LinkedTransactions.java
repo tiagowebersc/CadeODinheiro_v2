@@ -1,19 +1,22 @@
 package com.cadeodinheiro.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import lombok.Data;
 
-@Entity(name = "linkedTransactions")
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Column;
+import org.springframework.data.relational.core.mapping.Table;
+
+
+@Data
+@Table("linkedTransactions")
 public class LinkedTransactions {
     @Id
-    @ManyToOne
-    @Column(name = "transaction_idTransactionOrigin")
+    //@ManyToOne
+    //@Column(name = "transaction_idTransactionOrigin")
     private Transaction transactionOrigin;
 
     @Id
-    @ManyToOne
-    @Column(name = "transaction_idTransactionDestiny")
+    //@ManyToOne
+    //@Column(name = "transaction_idTransactionDestiny")
     private Transaction transactionDestiny;
 }

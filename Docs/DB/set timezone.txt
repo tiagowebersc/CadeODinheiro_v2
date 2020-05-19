@@ -1,1 +1,1 @@
-SET GLOBAL time_zone = '+2:00';
+SET GLOBAL time_zone = '+0:00';

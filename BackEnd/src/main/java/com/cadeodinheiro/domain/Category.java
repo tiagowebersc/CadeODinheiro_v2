@@ -1,26 +1,28 @@
 package com.cadeodinheiro.domain;
 
-import javax.persistence.*;
+import lombok.Data;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Column;
+import org.springframework.data.relational.core.mapping.Table;
 
-@Entity(name = "category")
-public class Category {
+
+@Data
+@Table("category")
+public class Category extends UserDate{
     @Id
-    @GeneratedValue
+    //@GeneratedValue
     private Long idCategory;
-
-    @ManyToOne
-    private User user;
 
     @Column
     private CategoryType categoryType;
 
-    @Column(length = 60)
+    //@Column(length = 60)
     private String description;
 
     @Column
     private Boolean isActive;
 
-    @ManyToOne
-    @Column(name = "upperCategory_idCategory")
+    //@ManyToOne
+    @Column("upperCategory_idCategory")
     private Category upperCategory;
 }

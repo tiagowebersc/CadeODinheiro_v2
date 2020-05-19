@@ -1,7 +1,7 @@
 package com.cadeodinheiro.repository;
 
 import com.cadeodinheiro.domain.Account;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 
-public interface AccountRepository extends CrudRepository<Account, Long> {
+public interface AccountRepository extends ReactiveCrudRepository<Account, Long> {
 }

@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
 
 @RestController
-public class AuthenticationREST {
+public class AuthenticationController {
 
     @Autowired
     private JWTUtil jwtUtil;
@@ -25,6 +25,12 @@ public class AuthenticationREST {
 
     @Autowired
     private JWTUserService JWTUserService;
+
+    @RequestMapping(value = "/signup", method = RequestMethod.POST)
+    public Mono<ResponseEntity<?>> signup(@RequestBody AuthRequest ar){
+       return Mono.just(ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
+    }
+
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public Mono<ResponseEntity<?>> login(@RequestBody AuthRequest ar) {

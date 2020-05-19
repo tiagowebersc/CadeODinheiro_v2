@@ -3,6 +3,7 @@
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `COD2`.`user` (
                                              `idUser` INT NOT NULL,
+                                             `creationDate` DATE NOT NULL,
                                              `username` VARCHAR(150) NOT NULL,
                                              `hashPassword` VARCHAR(60) NOT NULL,
                                              `name` VARCHAR(60) NOT NULL,
@@ -29,6 +30,7 @@ CREATE TABLE IF NOT EXISTS `COD2`.`currency` (
 CREATE TABLE IF NOT EXISTS `COD2`.`account` (
                                                 `idAccount` INT NOT NULL,
                                                 `user_idUser` INT NOT NULL,
+                                                `creationDate` DATE NOT NULL,
                                                 `currency_acronym` VARCHAR(6) NOT NULL,
                                                 `accountType` VARCHAR(1) NOT NULL,
                                                 `name` VARCHAR(60) NOT NULL,
@@ -58,6 +60,7 @@ CREATE TABLE IF NOT EXISTS `COD2`.`account` (
 CREATE TABLE IF NOT EXISTS `COD2`.`category` (
                                                  `idCategory` INT NOT NULL,
                                                  `user_idUser` INT NOT NULL,
+                                                 `creationDate` DATE NOT NULL,
                                                  `categoryType` VARCHAR(1) NOT NULL,
                                                  `description` VARCHAR(60) NOT NULL,
                                                  `isActive` TINYINT(1) NOT NULL,
@@ -100,6 +103,7 @@ CREATE TABLE IF NOT EXISTS `COD2`.`creditCardSettings` (
 CREATE TABLE IF NOT EXISTS `COD2`.`reminder` (
                                                  `idReminder` INT NOT NULL,
                                                  `user_idUser` INT NOT NULL,
+                                                 `creationDate` DATE NOT NULL,
                                                  `category_idCategory` INT NOT NULL,
                                                  `description` VARCHAR(100) NOT NULL,
                                                  `amount` DECIMAL(9,2) NOT NULL,
@@ -129,6 +133,7 @@ CREATE TABLE IF NOT EXISTS `COD2`.`reminder` (
 CREATE TABLE IF NOT EXISTS `COD2`.`transaction` (
                                                     `idTransaction` INT NOT NULL,
                                                     `user_idUser` INT NOT NULL,
+                                                    `creationDate` DATE NOT NULL,
                                                     `date` DATE NOT NULL,
                                                     `description` VARCHAR(100) NOT NULL,
                                                     `amount` DECIMAL(9,2) NOT NULL,

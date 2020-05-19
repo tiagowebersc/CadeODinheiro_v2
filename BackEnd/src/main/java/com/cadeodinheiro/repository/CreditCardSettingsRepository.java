@@ -1,7 +1,7 @@
 package com.cadeodinheiro.repository;
 
 import com.cadeodinheiro.domain.CreditCardSettings;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 
-public interface CreditCardSettingsRepository extends CrudRepository<CreditCardSettings, Long> {
+public interface CreditCardSettingsRepository extends ReactiveCrudRepository<CreditCardSettings, Long> {
 }

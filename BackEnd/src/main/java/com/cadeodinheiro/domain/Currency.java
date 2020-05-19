@@ -1,21 +1,31 @@
 package com.cadeodinheiro.domain;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
-@Entity(name = "currency")
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Column;
+import org.springframework.data.relational.core.mapping.Table;
+
+
+@Data
+@AllArgsConstructor
+@Table("currency")
 public class Currency {
     @Id
+    @Column("acronym")
     private String acronym;
 
-    @Column(length = 60)
+    //@Column(length = 60)
+    @Column("name")
     private String name;
 
-    @Column(length = 5)
+    //@Column(length = 5)
+    @Column("currencyPrefix")
     private String currencyPrefix;
 
-    @Column(length = 5)
-    private String currencySufix;
+    //@Column(length = 5)
+    @Column("currencySuffix")
+    private String currencySuffix;
 }

@@ -1,15 +1,17 @@
 package com.cadeodinheiro.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import java.util.Date;
+import lombok.Data;
 
-@Entity(name = "creditCardSettings")
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Column;
+import org.springframework.data.relational.core.mapping.Table;
+
+
+@Data
+@Table("creditCardSettings")
 public class CreditCardSettings {
     @Id
-    @ManyToOne
+    //@ManyToOne
     private Account account;
 
     @Column

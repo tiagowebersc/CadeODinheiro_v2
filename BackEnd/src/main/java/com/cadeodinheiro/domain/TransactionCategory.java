@@ -1,18 +1,23 @@
 package com.cadeodinheiro.domain;
 
-import javax.persistence.*;
+import lombok.Data;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Column;
+import org.springframework.data.relational.core.mapping.Table;
 import java.math.BigDecimal;
 
-@Entity(name = "transactionCategory")
+@Data
+@Table("transactionCategory")
 public class TransactionCategory {
     @Id
-    @GeneratedValue
+    //@GeneratedValue
     private Long idTransactionCategory;
 
-    @ManyToOne
+    //@ManyToOne
     private Transaction transaction;
 
-    @ManyToOne
+    //@ManyToOne
     private Category category;
 
     @Column

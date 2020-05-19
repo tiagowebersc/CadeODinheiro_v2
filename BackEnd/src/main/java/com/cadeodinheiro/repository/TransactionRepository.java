@@ -1,7 +1,7 @@
 package com.cadeodinheiro.repository;
 
 import com.cadeodinheiro.domain.Transaction;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 
-public interface TransactionRepository extends CrudRepository<Transaction, Long> {
+public interface TransactionRepository extends ReactiveCrudRepository<Transaction, Long> {
 }

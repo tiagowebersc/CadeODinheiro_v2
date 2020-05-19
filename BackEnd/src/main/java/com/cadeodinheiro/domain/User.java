@@ -2,24 +2,26 @@ package com.cadeodinheiro.domain;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Column;
+import org.springframework.data.relational.core.mapping.Table;
+import java.util.Date;
 
 @Data
-@Entity(name = "user")
+@Table("user")
 public class User {
     @Id
-    @GeneratedValue
+    //@GeneratedValue
     private Long idUser;
 
-    @Column(length = 150)
+    private Date creationDate;
+
+    //@Column(length = 150)
     private String username;
 
-    @Column(length = 60)
+    //@Column(length = 60)
     private String hashPassword;
 
-    @Column(length = 60)
+    //@Column(length = 60)
     private String name;
 }
