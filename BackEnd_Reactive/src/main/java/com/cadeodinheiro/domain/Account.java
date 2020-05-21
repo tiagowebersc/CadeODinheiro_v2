@@ -10,28 +10,28 @@ import java.math.BigDecimal;
 @Table("account")
 public class Account extends UserDate {
     @Id
-    //@GeneratedValue
+    @Column("idAccount")
     private Long idAccount;
 
-    //@ManyToOne
-    private Currency currency;
+    @Column("currency_acronym")
+    private String currencyAcronym;
 
-    @Column
+    @Column("accountType")
     private AccountType accountType;
 
-    //@Column(length = 60)
+    @Column("name")
     private String name;
 
-    //@Column(length = 200)
+    @Column("description")
     private String description;
 
-    @Column
+    @Column("balance")
     private BigDecimal balance;
 
-    @Column
+    @Column("displayOnResumeScreen")
     private Boolean displayOnResumeScreen;
 
-    @Column
+    @Column("isActive")
     private Boolean isActive;
 
 }
