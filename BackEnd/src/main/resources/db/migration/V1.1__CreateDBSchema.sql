@@ -2,10 +2,10 @@
 -- Table `COD2`.`user`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `COD2`.`user` (
-                                             `idUser` INT NOT NULL,
-                                             `creationDate` DATE NOT NULL,
+                                             `idUser` INT NOT NULL AUTO_INCREMENT,
+                                             `creation_date` DATE NOT NULL,
                                              `username` VARCHAR(150) NOT NULL,
-                                             `hashPassword` VARCHAR(60) NOT NULL,
+                                             `hash_password` VARCHAR(60) NOT NULL,
                                              `name` VARCHAR(60) NOT NULL,
                                              PRIMARY KEY (`idUser`),
                                              UNIQUE INDEX `username_UNIQUE` (`username` ASC))
@@ -18,8 +18,8 @@ CREATE TABLE IF NOT EXISTS `COD2`.`user` (
 CREATE TABLE IF NOT EXISTS `COD2`.`currency` (
                                                  `acronym` VARCHAR(6) NOT NULL,
                                                  `name` VARCHAR(60) NOT NULL,
-                                                 `currencyPrefix` VARCHAR(5) NULL,
-                                                 `currencySuffix` VARCHAR(5) NULL,
+                                                 `prefix` VARCHAR(5) NULL,
+                                                 `suffix` VARCHAR(5) NULL,
                                                  PRIMARY KEY (`acronym`))
     ENGINE = InnoDB;
 
