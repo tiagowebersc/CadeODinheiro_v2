@@ -5,6 +5,7 @@ import lu.cadeodinheiro.auth.JwtRequest;
 import lu.cadeodinheiro.auth.JwtResponse;
 import lu.cadeodinheiro.dto.UserDTO;
 import lu.cadeodinheiro.service.JwtUserDetailsService;
+import lu.cadeodinheiro.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -16,18 +17,18 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin
-public class JwtAuthenticationController {
+public class UserController {
 
     @Autowired
     private AuthenticationManager authenticationManager;
-
     @Autowired
     private JwtTokenUtil jwtTokenUtil;
-
     @Autowired
     private JwtUserDetailsService userDetailsService;
+    @Autowired
+    private UserService userService;
 
-    @RequestMapping(value = "/authenticate", method = RequestMethod.POST)
+    @PostMapping(value = "/authenticate")
     public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest) throws Exception {
 
         authenticate(authenticationRequest.getUsername(), authenticationRequest.getPassword());
@@ -40,10 +41,15 @@ public class JwtAuthenticationController {
         return ResponseEntity.ok(new JwtResponse(token));
     }
 
-    @RequestMapping(value ="/register", method = RequestMethod.POST)
+    @PostMapping(value ="/register")
     public ResponseEntity<?> saveUser(@RequestBody UserDTO user){
-        return ResponseEntity.ok(userDetailsService.save(user));
+        return ResponseEntity.ok(userService.save(user));
     }
+
+    //@PutMapping(value = "/user/{username}")
+    //public ResponseEntity<?> updateUser(@PathVariable("username") String username, @RequestBody UserDTO user){
+    //}
+
 
     private void authenticate(String username, String password) throws Exception {
         try {

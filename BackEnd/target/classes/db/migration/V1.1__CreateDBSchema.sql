@@ -2,12 +2,12 @@
 -- Table `COD2`.`user`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `COD2`.`user` (
-                                             `idUser` INT NOT NULL AUTO_INCREMENT,
+                                             `id_user` INT NOT NULL AUTO_INCREMENT,
                                              `creation_date` DATE NOT NULL,
                                              `username` VARCHAR(150) NOT NULL,
                                              `hash_password` VARCHAR(60) NOT NULL,
                                              `name` VARCHAR(60) NOT NULL,
-                                             PRIMARY KEY (`idUser`),
+                                             PRIMARY KEY (`id_user`),
                                              UNIQUE INDEX `username_UNIQUE` (`username` ASC))
     ENGINE = InnoDB;
 
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `COD2`.`account` (
                                                 INDEX `fk_account_currency_idx` (`currency_acronym` ASC),
                                                 CONSTRAINT `fk_account_user`
                                                     FOREIGN KEY (`user_idUser`)
-                                                        REFERENCES `COD2`.`user` (`idUser`)
+                                                        REFERENCES `COD2`.`user` (`id_user`)
                                                         ON DELETE NO ACTION
                                                         ON UPDATE NO ACTION,
                                                 CONSTRAINT `fk_account_currency`
@@ -70,7 +70,7 @@ CREATE TABLE IF NOT EXISTS `COD2`.`category` (
                                                  INDEX `fk_category_category_idx` (`upperCategory_idCategory` ASC),
                                                  CONSTRAINT `fk_category_user`
                                                      FOREIGN KEY (`user_idUser`)
-                                                         REFERENCES `COD2`.`user` (`idUser`)
+                                                         REFERENCES `COD2`.`user` (`id_user`)
                                                          ON DELETE NO ACTION
                                                          ON UPDATE NO ACTION,
                                                  CONSTRAINT `fk_category_category`
@@ -116,7 +116,7 @@ CREATE TABLE IF NOT EXISTS `COD2`.`reminder` (
                                                  INDEX `fk_reminder_category_idx` (`category_idCategory` ASC),
                                                  CONSTRAINT `fk_remider_user`
                                                      FOREIGN KEY (`user_idUser`)
-                                                         REFERENCES `COD2`.`user` (`idUser`)
+                                                         REFERENCES `COD2`.`user` (`id_user`)
                                                          ON DELETE NO ACTION
                                                          ON UPDATE NO ACTION,
                                                  CONSTRAINT `fk_remider_category`
@@ -143,7 +143,7 @@ CREATE TABLE IF NOT EXISTS `COD2`.`transaction` (
                                                     INDEX `fk_transaction_reminder_idx` (`reminder_idReminder` ASC),
                                                     CONSTRAINT `fk_transaction_user`
                                                         FOREIGN KEY (`user_idUser`)
-                                                            REFERENCES `COD2`.`user` (`idUser`)
+                                                            REFERENCES `COD2`.`user` (`id_user`)
                                                             ON DELETE NO ACTION
                                                             ON UPDATE NO ACTION,
                                                     CONSTRAINT `fk_transaction_reminder`
