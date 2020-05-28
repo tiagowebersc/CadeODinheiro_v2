@@ -1,4 +1,4 @@
-package lu.cadeodinheiro.config;
+package lu.cadeodinheiro.utils;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

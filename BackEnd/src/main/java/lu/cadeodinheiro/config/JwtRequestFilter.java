@@ -2,6 +2,7 @@ package lu.cadeodinheiro.config;
 
 import io.jsonwebtoken.ExpiredJwtException;
 import lu.cadeodinheiro.service.JwtUserDetailsService;
+import lu.cadeodinheiro.utils.JwtTokenUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;

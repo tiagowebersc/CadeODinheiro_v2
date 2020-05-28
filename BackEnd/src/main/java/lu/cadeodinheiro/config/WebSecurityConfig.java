@@ -1,5 +1,6 @@
 package lu.cadeodinheiro.config;
 
+import lu.cadeodinheiro.auth.JwtAuthenticationEntryPoint;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

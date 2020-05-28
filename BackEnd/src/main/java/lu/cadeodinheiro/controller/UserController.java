@@ -1,8 +1,10 @@
 package lu.cadeodinheiro.controller;
 
-import lu.cadeodinheiro.config.JwtTokenUtil;
+import lu.cadeodinheiro.dto.UserChangeDTO;
+import lu.cadeodinheiro.utils.JwtTokenUtil;
 import lu.cadeodinheiro.auth.JwtRequest;
 import lu.cadeodinheiro.auth.JwtResponse;
+import lu.cadeodinheiro.dto.UserChangePasswordDTO;
 import lu.cadeodinheiro.dto.UserDTO;
 import lu.cadeodinheiro.service.JwtUserDetailsService;
 import lu.cadeodinheiro.service.UserService;
@@ -46,9 +48,15 @@ public class UserController {
         return ResponseEntity.ok(userService.save(user));
     }
 
-    //@PutMapping(value = "/user/{username}")
-    //public ResponseEntity<?> updateUser(@PathVariable("username") String username, @RequestBody UserDTO user){
-    //}
+    @PutMapping(value = "/user")
+    public ResponseEntity<?> updateUser(@RequestBody UserChangeDTO user){
+        return ResponseEntity.ok(userService.changeUser(user));
+    }
+
+    @PutMapping(value = "/user/change_password")
+    public ResponseEntity<?> changePasswordUser(@RequestBody UserChangePasswordDTO user){
+        return ResponseEntity.ok(userService.changePasswordUser(user));
+    }
 
 
     private void authenticate(String username, String password) throws Exception {
