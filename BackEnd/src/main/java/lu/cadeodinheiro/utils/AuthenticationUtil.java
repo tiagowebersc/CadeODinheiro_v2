@@ -16,4 +16,8 @@ public class AuthenticationUtil {
         }
         return currentUserName;
     }
+
+    public boolean isUsernameSameAuthenticated(String username){
+        return username.equals(getUsernameAuthenticated());
+    }
 }

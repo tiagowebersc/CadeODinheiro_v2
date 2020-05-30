@@ -48,6 +48,11 @@ public class UserController {
         return ResponseEntity.ok(userService.save(user));
     }
 
+    @GetMapping(value = "/user")
+    public ResponseEntity<?> getUser(){
+        return ResponseEntity.ok(userService.getUser());
+    }
+
     @PutMapping(value = "/user")
     public ResponseEntity<?> updateUser(@RequestBody UserChangeDTO user){
         return ResponseEntity.ok(userService.changeUser(user));

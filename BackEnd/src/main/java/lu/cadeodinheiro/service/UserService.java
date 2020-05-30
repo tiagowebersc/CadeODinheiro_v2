@@ -33,7 +33,7 @@ public class UserService {
         if (userDTO == null || userDTO.getUsername().isEmpty()){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "User empty");
         }
-        if (!isUsernameSameAuthenticated(userDTO.getUsername())){
+        if (!authenticationUtil.isUsernameSameAuthenticated(userDTO.getUsername())){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "User doesn't match");
         }
         if (userDTO.getOldPassword().isEmpty()){
@@ -58,11 +58,19 @@ public class UserService {
         return userRepository.save(user);
     }
 
+    public User getUser(){
+        if (authenticationUtil.getUsernameAuthenticated() != null){
+            return userRepository.findByUsername(authenticationUtil.getUsernameAuthenticated());
+        }else {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "User not found");
+        }
+    }
+
     public User changeUser(UserChangeDTO userDTO){
         if (userDTO == null || userDTO.getUsername().isEmpty()){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "User empty");
         }
-        if (!isUsernameSameAuthenticated(userDTO.getUsername())){
+        if (!authenticationUtil.isUsernameSameAuthenticated(userDTO.getUsername())){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "User doesn't match");
         }
         if (userDTO.getName().isEmpty()){
@@ -85,9 +93,7 @@ public class UserService {
         return userRepository.save(newUser);
     }
 
-    public boolean isUsernameSameAuthenticated(String username){
-        return username.equals(authenticationUtil.getUsernameAuthenticated());
-    }
+
 }
 
 
