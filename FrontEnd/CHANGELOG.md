@@ -5,7 +5,6 @@
 ### Bug Fixes
 
 * **forms:** add missing forms module import ([#5530](https://github.com/akveo/ngx-admin/issues/5530)) ([1ff2a0d](https://github.com/akveo/ngx-admin/commit/1ff2a0d))
-* **tinymce:** set absolute path for skin url ([#5491](https://github.com/akveo/ngx-admin/issues/5491)) ([90125ab](https://github.com/akveo/ngx-admin/commit/90125ab))
 
 
 ### Features
@@ -134,7 +133,6 @@ The following libraries were updated:
 - @agm/core
 - @ng-bootstrap/ng-bootstrap
 - @swimlane/ngx-charts
-- ng2-ckeditor
 - ngx-echarts
 * **icons:** Since this is a major package update we recommend looking through the upgrade guide https://fontawesome.com/how-to-use/on-the-web/setup/upgrading-from-version-4
 
