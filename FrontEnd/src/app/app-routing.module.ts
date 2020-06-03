@@ -5,8 +5,6 @@ import {
   NbLoginComponent,
   NbLogoutComponent,
   NbRegisterComponent,
-  NbRequestPasswordComponent,
-  NbResetPasswordComponent,
 } from '@nebular/auth';
 
 export const routes: Routes = [
@@ -34,14 +32,6 @@ export const routes: Routes = [
       {
         path: 'logout',
         component: NbLogoutComponent,
-      },
-      {
-        path: 'request-password',
-        component: NbRequestPasswordComponent,
-      },
-      {
-        path: 'reset-password',
-        component: NbResetPasswordComponent,
       },
     ],
   },
