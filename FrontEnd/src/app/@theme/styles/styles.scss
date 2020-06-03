@@ -31,9 +31,9 @@
   @include nb-theme-global();
   @include nb-auth-global();
 
-  @include ngx-layout();
+  @include cod-layout();
   // loading progress bar
-  @include ngx-pace-theme();
+  @include cod-pace-theme();
 
   @include nb-overrides();
   @include material-overrides();

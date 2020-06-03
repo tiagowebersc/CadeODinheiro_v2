@@ -8,7 +8,7 @@ import { Subject, Observable } from 'rxjs';
 import { RippleService } from '../../../@core/utils/ripple.service';
 
 @Component({
-  selector: 'ngx-header',
+  selector: 'cod-header',
   styleUrls: ['./header.component.scss'],
   templateUrl: './header.component.html',
 })

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ngx-admin-demo": {
+    "cadeodinheiro": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -77,18 +77,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ngx-admin-demo:build"
+            "browserTarget": "cadeodinheiro:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ngx-admin-demo:build:production"
+              "browserTarget": "cadeodinheiro:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ngx-admin-demo:build"
+            "browserTarget": "cadeodinheiro:build"
           }
         },
         "test": {
@@ -140,7 +140,7 @@
         }
       }
     },
-    "ngx-admin-demo-e2e": {
+    "cadeodinheiro-e2e": {
       "root": "",
       "sourceRoot": "",
       "projectType": "application",
@@ -149,7 +149,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "./protractor.conf.js",
-            "devServerTarget": "ngx-admin-demo:serve"
+            "devServerTarget": "cadeodinheiro:serve"
           }
         },
         "lint": {
@@ -164,14 +164,14 @@
       }
     }
   },
-  "defaultProject": "ngx-admin-demo",
+  "defaultProject": "cadeodinheiro",
   "schematics": {
     "@schematics/angular:component": {
-      "prefix": "ngx",
+      "prefix": "cod",
       "style": "scss"
     },
     "@schematics/angular:directive": {
-      "prefix": "ngx"
+      "prefix": "cod"
     }
   },
   "cli": {
