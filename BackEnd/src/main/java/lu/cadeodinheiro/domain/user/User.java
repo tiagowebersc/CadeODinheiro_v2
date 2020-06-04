@@ -11,9 +11,11 @@ import java.util.Date;
 @Table(name = "user")
 public class User {
     @Id
+    @JsonIgnore
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private long idUser;
 
+    @JsonIgnore
     private Date creationDate;
 
     @Column(length = 150, unique = true, nullable = false)

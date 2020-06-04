@@ -1,6 +1,7 @@
 package lu.cadeodinheiro.config;
 
 import io.jsonwebtoken.ExpiredJwtException;
+import lu.cadeodinheiro.dto.UserDTO;
 import lu.cadeodinheiro.service.JwtUserDetailsService;
 import lu.cadeodinheiro.utils.JwtTokenUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 
 @Component
 public class JwtRequestFilter extends OncePerRequestFilter {
@@ -57,7 +59,6 @@ public class JwtRequestFilter extends OncePerRequestFilter {
             // if token is valid configure Spring Security to manually set
             // authentication
             if (jwtTokenUtil.validateToken(jwtToken, userDetails)) {
-
                 UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(
                         userDetails, null, userDetails.getAuthorities());
                 usernamePasswordAuthenticationToken

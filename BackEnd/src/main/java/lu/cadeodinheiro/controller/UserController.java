@@ -1,5 +1,6 @@
 package lu.cadeodinheiro.controller;
 
+import lu.cadeodinheiro.domain.user.User;
 import lu.cadeodinheiro.dto.UserChangeDTO;
 import lu.cadeodinheiro.utils.JwtTokenUtil;
 import lu.cadeodinheiro.auth.JwtRequest;
@@ -18,7 +19,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@CrossOrigin
+//todo: change cross origin
+@CrossOrigin("*")
 public class UserController {
 
     @Autowired
@@ -35,8 +37,7 @@ public class UserController {
 
         authenticate(authenticationRequest.getUsername(), authenticationRequest.getPassword());
 
-        final UserDetails userDetails = userDetailsService
-                .loadUserByUsername(authenticationRequest.getUsername());
+        final UserDetails userDetails = userDetailsService.loadUserByUsername(authenticationRequest.getUsername());
 
         final String token = jwtTokenUtil.generateToken(userDetails);
 
