@@ -57,7 +57,7 @@ export const NB_CORE_PROVIDERS = [
     forms: {
       login: {
         rememberMe: false,
-      }
+      },
     },
   }).providers,
 

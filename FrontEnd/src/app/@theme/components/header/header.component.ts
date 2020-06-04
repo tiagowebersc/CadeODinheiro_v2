@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, SystemJsNgModuleLoader } from '@angular/core';
+import { Component, OnDestroy, OnInit} from '@angular/core';
 import { NbMediaBreakpointsService, NbMenuService, NbSidebarService, NbThemeService } from '@nebular/theme';
 
 import { LayoutService } from '../../../@core/utils';
@@ -67,7 +67,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.authService.onTokenChange()
       .subscribe((token: NbAuthJWTToken) => {
         if (token.isValid()) {
-          this.user = token.getPayload(); 
+          this.user = token.getPayload();
           console.error(token.getPayload());
         }
       });

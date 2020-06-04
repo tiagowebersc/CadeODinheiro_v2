@@ -8,7 +8,8 @@ export const routes: Routes = [
     canActivate: [AuthGuard],
     loadChildren: () => import('./pages/pages.module')
       .then(m => m.PagesModule),
-  },{
+  },
+  {
     path: 'auth',
     loadChildren: './auth/auth.module#NgxAuthModule',
   },
