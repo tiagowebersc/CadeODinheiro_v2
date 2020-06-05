@@ -1,5 +1,6 @@
 package lu.cadeodinheiro.exception;
 
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
+import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.servlet.NoHandlerFoundException;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
@@ -21,6 +23,7 @@ import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ThreadPoolExecutor;
 
 @ControllerAdvice
 public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionHandler {
@@ -40,9 +43,9 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
         }
 
         ApiError apiError =
-                new ApiError(HttpStatus.BAD_REQUEST, ex.getLocalizedMessage(), errors);
+                new ApiError(HttpStatus.BAD_REQUEST, ex.getLocalizedMessage(), request.getContextPath(), errors);
         return handleExceptionInternal(
-                ex, apiError, headers, apiError.getStatus(), request);
+                ex, apiError, headers, HttpStatus.BAD_REQUEST, request);
     }
 
     @Override
@@ -52,9 +55,9 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
         String error = ex.getParameterName() + " parameter is missing";
 
         ApiError apiError =
-                new ApiError(HttpStatus.BAD_REQUEST, ex.getLocalizedMessage(), error);
+                new ApiError(HttpStatus.BAD_REQUEST, ex.getLocalizedMessage(), request.getContextPath(), error);
         return new ResponseEntity<Object>(
-                apiError, new HttpHeaders(), apiError.getStatus());
+                apiError, new HttpHeaders(), HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler({ ConstraintViolationException.class })
@@ -67,9 +70,21 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
         }
 
         ApiError apiError =
-                new ApiError(HttpStatus.BAD_REQUEST, ex.getLocalizedMessage(), errors);
+                new ApiError(HttpStatus.BAD_REQUEST, ex.getLocalizedMessage(), request.getContextPath(), errors);
         return new ResponseEntity<Object>(
-                apiError, new HttpHeaders(), apiError.getStatus());
+                apiError, new HttpHeaders(), HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler({DataIntegrityViolationException.class})
+    public ResponseEntity<Object> handleDataintegrityViolation(
+            DataIntegrityViolationException ex, WebRequest request) {
+        List<String> errors = new ArrayList<String>();
+
+        ApiError apiError =
+                new ApiError(HttpStatus.BAD_REQUEST, ex.getRootCause().getLocalizedMessage(), request.getContextPath(), errors);
+        return new ResponseEntity<Object>(
+                apiError, new HttpHeaders(), HttpStatus.BAD_REQUEST);
+
     }
 
     @ExceptionHandler({ MethodArgumentTypeMismatchException.class })
@@ -79,9 +94,9 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
                 ex.getName() + " should be of type " + ex.getRequiredType().getName();
 
         ApiError apiError =
-                new ApiError(HttpStatus.BAD_REQUEST, ex.getLocalizedMessage(), error);
+                new ApiError(HttpStatus.BAD_REQUEST, ex.getLocalizedMessage(), request.getContextPath(), error);
         return new ResponseEntity<Object>(
-                apiError, new HttpHeaders(), apiError.getStatus());
+                apiError, new HttpHeaders(), HttpStatus.BAD_REQUEST);
     }
 
     @Override
@@ -89,8 +104,8 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
             NoHandlerFoundException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
         String error = "No handler found for " + ex.getHttpMethod() + " " + ex.getRequestURL();
 
-        ApiError apiError = new ApiError(HttpStatus.NOT_FOUND, ex.getLocalizedMessage(), error);
-        return new ResponseEntity<Object>(apiError, new HttpHeaders(), apiError.getStatus());
+        ApiError apiError = new ApiError(HttpStatus.NOT_FOUND, ex.getLocalizedMessage(), request.getContextPath(), error);
+        return new ResponseEntity<Object>(apiError, new HttpHeaders(), HttpStatus.NOT_FOUND);
     }
 
     @Override
@@ -106,9 +121,9 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
         ex.getSupportedHttpMethods().forEach(t -> builder.append(t + " "));
 
         ApiError apiError = new ApiError(HttpStatus.METHOD_NOT_ALLOWED,
-                ex.getLocalizedMessage(), builder.toString());
+                ex.getLocalizedMessage(), request.getContextPath(), builder.toString());
         return new ResponseEntity<Object>(
-                apiError, new HttpHeaders(), apiError.getStatus());
+                apiError, new HttpHeaders(), HttpStatus.METHOD_NOT_ALLOWED);
     }
 
     @Override
@@ -123,16 +138,29 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
         ex.getSupportedMediaTypes().forEach(t -> builder.append(t + ", "));
 
         ApiError apiError = new ApiError(HttpStatus.UNSUPPORTED_MEDIA_TYPE,
-                ex.getLocalizedMessage(), builder.substring(0, builder.length() - 2));
+                ex.getLocalizedMessage(), request.getContextPath(), builder.substring(0, builder.length() - 2));
         return new ResponseEntity<Object>(
-                apiError, new HttpHeaders(), apiError.getStatus());
+                apiError, new HttpHeaders(), HttpStatus.UNSUPPORTED_MEDIA_TYPE);
     }
+
+    @ExceptionHandler({ResponseStatusException.class})
+    public ResponseEntity<Object> handleResponseStatus(
+            ResponseStatusException ex, WebRequest request
+    ){
+        List<String> errors = new ArrayList<String>();
+        ApiError apiError = new ApiError(HttpStatus.BAD_REQUEST, ex.getReason(), request.getContextPath(), errors);
+        return new ResponseEntity<Object>(
+                apiError, new HttpHeaders(), HttpStatus.BAD_REQUEST);
+    }
+
 
     @ExceptionHandler({ Exception.class })
     public ResponseEntity<Object> handleAll(Exception ex, WebRequest request) {
+        List<String> errors = new ArrayList<String>();
         ApiError apiError = new ApiError(
-                HttpStatus.INTERNAL_SERVER_ERROR, ex.getLocalizedMessage(), "error occurred");
+                HttpStatus.INTERNAL_SERVER_ERROR, ex.getLocalizedMessage(), request.getContextPath(), errors);
         return new ResponseEntity<Object>(
-                apiError, new HttpHeaders(), apiError.getStatus());
+                apiError, new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR);
     }
+
 }

@@ -58,6 +58,14 @@ public class UserService {
         return userRepository.save(user);
     }
 
+    public User getUser(String username){
+        if (username != null){
+            return userRepository.findByUsername(username);
+        }else {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "User not found");
+        }
+    }
+
     public User getUser(){
         if (authenticationUtil.getUsernameAuthenticated() != null){
             return userRepository.findByUsername(authenticationUtil.getUsernameAuthenticated());

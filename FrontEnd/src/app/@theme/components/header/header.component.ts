@@ -17,7 +17,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
   private destroy$: Subject<void> = new Subject<void>();
   public readonly materialTheme$: Observable<boolean>;
   userPictureOnly: boolean = false;
-  user = {};
+  userToken = {};
+  user = {
+    picture: "assets/images/piggyBank.png",
+  }
 
   themes = [
     {
@@ -67,8 +70,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.authService.onTokenChange()
       .subscribe((token: NbAuthJWTToken) => {
         if (token.isValid()) {
-          this.user = token.getPayload();
-          console.error(token.getPayload());
+          this.userToken = token.getPayload();
+          //this.themeService.changeTheme(this.user.theme);
+          console.error(this.userToken);
         }
       });
   }
