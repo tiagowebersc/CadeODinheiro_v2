@@ -5,6 +5,6 @@ import { NbLoginComponent } from '@nebular/auth';
   selector: 'cod-login',
   templateUrl: './login.component.html',
 })
-export class NgxLoginComponent extends NbLoginComponent {
+export class CodLoginComponent extends NbLoginComponent {
   strategy = 'username';
 }

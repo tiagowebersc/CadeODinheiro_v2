@@ -16,6 +16,7 @@ import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.awt.desktop.ScreenSleepEvent;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -49,6 +50,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
             }
         } else {
             logger.warn("JWT Token does not begin with Bearer String");
+            logger.warn("Token " + requestTokenHeader);
         }
 
         // Once we get the token validate it.

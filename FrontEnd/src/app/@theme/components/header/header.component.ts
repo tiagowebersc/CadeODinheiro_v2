@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit} from '@angular/core';
 import { NbMediaBreakpointsService, NbMenuService, NbSidebarService, NbThemeService } from '@nebular/theme';
 
 import { LayoutService } from '../../../@core/utils';
-import { map, takeUntil } from 'rxjs/operators';
+import { filter, map, takeUntil } from 'rxjs/operators';
 import { Subject, Observable } from 'rxjs';
 import { RippleService } from '../../../@core/utils/ripple.service';
 import { NbAuthJWTToken, NbAuthService } from '@nebular/auth';
@@ -19,8 +19,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
   userPictureOnly: boolean = false;
   userToken = {};
   user = {
-    picture: "assets/images/piggyBank.png",
-  }
+    picture: 'assets/images/piggyBank.jpg',
+  };
 
   themes = [
     {
@@ -51,7 +51,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   currentTheme = 'default';
 
-  userMenu = [ { title: 'Profile' }, { title: 'Log out' } ];
+  userMenu = [ { title: 'Profile' }, { title: 'Log out'  } ];
 
   public constructor(
     private sidebarService: NbSidebarService,
@@ -71,7 +71,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
       .subscribe((token: NbAuthJWTToken) => {
         if (token.isValid()) {
           this.userToken = token.getPayload();
-          //this.themeService.changeTheme(this.user.theme);
+          // this.themeService.changeTheme(this.user.theme);
           console.error(this.userToken);
         }
       });
@@ -96,6 +96,21 @@ export class HeaderComponent implements OnInit, OnDestroy {
       .subscribe(themeName => {
         this.currentTheme = themeName;
         this.rippleService.toggle(themeName?.startsWith('material'));
+      });
+
+      this.menuService.onItemClick()
+      .pipe(
+        filter(({ tag }) => tag === 'cod-context-menu'),
+        map(({ item: { title } }) => title),
+      )
+      .subscribe(title => {
+        if (title === 'Profile') {
+          console.error('Profile');
+        }
+        if (title === 'Log out') {
+          localStorage.clear();
+          location.reload();
+        }
       });
   }
 

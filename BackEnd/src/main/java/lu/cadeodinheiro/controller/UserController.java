@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 //todo: change cross origin
-@CrossOrigin("*")
+@CrossOrigin(origins = "http://localhost:4200")
 public class UserController {
 
     @Autowired
@@ -63,7 +63,6 @@ public class UserController {
     public ResponseEntity<?> changePasswordUser(@RequestBody UserChangePasswordDTO user){
         return ResponseEntity.ok(userService.changePasswordUser(user));
     }
-
 
     private void authenticate(String username, String password) throws Exception {
         try {

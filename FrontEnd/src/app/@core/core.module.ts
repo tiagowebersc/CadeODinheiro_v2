@@ -1,6 +1,6 @@
 import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NbAuthModule, NbPasswordAuthStrategy, NbAuthJWTToken } from '@nebular/auth';
+import { NbAuthModule, NbPasswordAuthStrategy, NbAuthJWTToken, NB_AUTH_TOKEN_INTERCEPTOR_FILTER } from '@nebular/auth';
 import { NbSecurityModule, NbRoleProvider } from '@nebular/security';
 import { of as observableOf } from 'rxjs';
 
@@ -9,6 +9,8 @@ import {
   AnalyticsService,
   LayoutService,
 } from './utils';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { JwtInterceptor } from './utils/jwt.interceptor';
 
 
 export class NbSimpleRoleProvider extends NbRoleProvider {
@@ -41,14 +43,6 @@ export const NB_CORE_PROVIDERS = [
               method: 'post',
               redirect: {
                 success: '/pages/dashboard',
-                failure: null,
-              },
-            },
-            logout: {
-              endpoint: '/logout',
-              method: 'post',
-              redirect: {
-                success: '/auth/login',
                 failure: null,
               },
             },
@@ -101,6 +95,8 @@ export class CoreModule {
       ngModule: CoreModule,
       providers: [
         ...NB_CORE_PROVIDERS,
+        { provide: NB_AUTH_TOKEN_INTERCEPTOR_FILTER, useValue: (req) => false },
+        {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
       ],
     };
   }
