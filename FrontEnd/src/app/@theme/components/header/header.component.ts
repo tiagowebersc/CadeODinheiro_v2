@@ -72,7 +72,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
         if (token.isValid()) {
           this.userToken = token.getPayload();
           // this.themeService.changeTheme(this.user.theme);
-          console.error(this.userToken);
+          // console.error(this.userToken);
         }
       });
   }
@@ -105,7 +105,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
       )
       .subscribe(title => {
         if (title === 'Profile') {
-          console.error('Profile');
+          // log
+          // console.error('Profile');
         }
         if (title === 'Log out') {
           localStorage.clear();

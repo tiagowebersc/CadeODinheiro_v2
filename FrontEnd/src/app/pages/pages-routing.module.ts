@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { CurrencyComponent } from './currency/currency.component';
 
 const routes: Routes = [{
   path: '',
@@ -16,6 +17,15 @@ const routes: Routes = [{
       path: '',
       redirectTo: 'dashboard',
       pathMatch: 'full',
+    },
+    {
+      path: 'currency',
+      component: CurrencyComponent,
+    },
+    {
+      path: 'general',
+      loadChildren: () => import('./general/general.module')
+        .then(m => m.GeneralModule),
     },
   ],
 }];
