@@ -12,14 +12,40 @@ export const MENU_ITEMS: NbMenuItem[] = [
     icon: { icon: 'fa-piggy-bank', pack: 'font-awesome' },
     children: [
       {
-        title: 'Currencies',
-        icon: { icon: 'fa-money-bill-alt', pack: 'font-awesome' },
-        link: '/pages/currency',
+        title: 'Account',
+        icon: { icon: 'fa-university', pack: 'font-awesome' },
+        link: '/pages/general/account',
       },
       {
-        title: 'Currencies',
+        title: 'Category',
+        icon: { icon: 'fa-boxes', pack: 'font-awesome' },
+        link: '/pages/general/category',
+      },
+      {
+        title: 'Currency',
         icon: { icon: 'fa-money-bill-alt', pack: 'font-awesome' },
         link: '/pages/general/currency',
+      },
+      {
+        title: 'Reminder',
+        icon: { icon: 'fa-stopwatch', pack: 'font-awesome' },
+        link: '/pages/general/reminder',
+      },
+    ],
+  },
+  {
+    title: 'Transaction',
+    icon: { icon: 'fa-piggy-bank', pack: 'font-awesome' },
+    children: [
+      {
+        title: 'Simplified',
+        icon: { icon: 'fa-university', pack: 'font-awesome' },
+        link: '/pages/transaction/simplified',
+      },
+      {
+        title: 'Complete',
+        icon: { icon: 'fa-boxes', pack: 'font-awesome' },
+        link: '/pages/transaction/complete',
       },
     ],
   },
