@@ -39,13 +39,44 @@ export const MENU_ITEMS: NbMenuItem[] = [
     children: [
       {
         title: 'Simplified',
-        icon: { icon: 'fa-university', pack: 'font-awesome' },
+        icon: { icon: 'fa-box', pack: 'font-awesome' },
         link: '/pages/transaction/simplified',
       },
       {
-        title: 'Complete',
+        title: 'Detailed',
         icon: { icon: 'fa-boxes', pack: 'font-awesome' },
-        link: '/pages/transaction/complete',
+        link: '/pages/transaction/detailed',
+      },
+    ],
+  },
+  {
+    title: 'Credit Card Payment',
+    icon: { icon: 'fa-credit-card', pack: 'font-awesome' },
+    link: '/pages/transaction/credit-card-payment',
+  },
+  {
+    title: 'Transfer',
+    icon: { icon: 'fa-exchange-alt', pack: 'font-awesome' },
+    link: '/pages/transaction/transfer',
+  },
+  {
+    title: 'Account Statement',
+    icon: { icon: 'fa-file-alt', pack: 'font-awesome' },
+    link: '/pages/statement/account-statement',
+  },
+  {
+    title: 'Summary',
+    icon: { icon: 'fa-poll', pack: 'font-awesome' },
+    children: [
+      {
+        title: 'Monthly',
+        icon: { icon: 'fa-calendar-minus', pack: 'font-awesome' },
+        link: '/pages/summary/monthly',
+      },
+      {
+        title: 'Yearly',
+        icon: { icon: 'fa-calendar-alt', pack: 'font-awesome' },
+        link: '/pages/summary/yearly',
       },
     ],
   },

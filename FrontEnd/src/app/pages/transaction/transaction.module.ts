@@ -15,14 +15,18 @@ import { ThemeModule } from '../../@theme/theme.module';
 import { TransactionComponent } from './transaction.component';
 import { TransactionRoutingModule } from './transaction-routing.module';
 import { SimplifiedComponent } from './simplified/simplified.component';
-import { CompleteComponent } from './complete/complete.component';
+import { DetailedComponent } from './detailed/detailed.component';
+import { CreditCardPaymentComponent } from './credit-card-payment/credit-card-payment.component';
+import { TransferComponent } from './transfer/transfer.component';
 
 
 @NgModule({
   declarations: [
     TransactionComponent,
     SimplifiedComponent,
-    CompleteComponent],
+    DetailedComponent,
+    CreditCardPaymentComponent,
+    TransferComponent],
   imports: [
     ThemeModule,
     NbInputModule,

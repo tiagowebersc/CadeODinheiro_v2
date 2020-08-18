@@ -3,7 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { TransactionComponent } from './transaction.component';
 import { SimplifiedComponent } from './simplified/simplified.component';
-import { CompleteComponent } from './complete/complete.component';
+import { DetailedComponent } from './detailed/detailed.component';
+import { CreditCardPaymentComponent } from './credit-card-payment/credit-card-payment.component';
+import { TransferComponent } from './transfer/transfer.component';
 
 
 const routes: Routes = [
@@ -16,8 +18,16 @@ const routes: Routes = [
          component: SimplifiedComponent,
        },
        {
-        path: 'complete',
-        component: CompleteComponent,
+        path: 'detailed',
+        component: DetailedComponent,
+      },
+      {
+        path: 'credit-card-payment',
+        component: CreditCardPaymentComponent,
+      },
+      {
+        path: 'transfer',
+        component: TransferComponent,
       },
     ],
   },
