@@ -3,13 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0e50e3d4-77be-41ce-b00c-d0ed8ab0abf4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/app/pages/pages-menu.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/app/pages/pages-menu.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/app/pages/transaction/complete/complete.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/app/pages/transaction/complete/complete.component.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/app/pages/transaction/complete/complete.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/app/pages/transaction/complete/complete.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/app/pages/transaction/transaction-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/app/pages/transaction/transaction-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/app/pages/transaction/transaction.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/app/pages/transaction/transaction.module.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />

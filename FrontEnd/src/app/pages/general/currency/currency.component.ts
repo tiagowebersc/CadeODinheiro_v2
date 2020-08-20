@@ -9,7 +9,49 @@ export class CurrencyComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
+  settings = {
+    columns: {
+      acronym: {
+        title: 'Acronym',
+      },
+      name: {
+        title: 'Name',
+      },
+      prefix: {
+        title: 'Prefix',
+      },
+      suffix: {
+        title: 'Suffix',
+      },
+    },
+    actions: {
+      add: false,
+      edit: false,
+      delete: false,
+    },
+  };
+
+  data = [
+    {
+      acronym: 'USD',
+      name: 'US Dollar',
+      prefix: '$',
+      suffix: '',
+    },
+    {
+      acronym: 'EUR',
+      name: 'Euro',
+      prefix: '',
+      suffix: '€',
+    },
+    {
+      acronym: 'BRL',
+      name: 'Real',
+      prefix: 'R$',
+      suffix: '',
+    },
+  ];
 }
