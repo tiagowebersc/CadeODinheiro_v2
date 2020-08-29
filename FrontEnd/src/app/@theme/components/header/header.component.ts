@@ -6,6 +6,7 @@ import { filter, map, takeUntil } from 'rxjs/operators';
 import { Subject, Observable } from 'rxjs';
 import { RippleService } from '../../../@core/utils/ripple.service';
 import { NbAuthJWTToken, NbAuthService } from '@nebular/auth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'cod-header',
@@ -61,7 +62,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
     private breakpointService: NbMediaBreakpointsService,
     private rippleService: RippleService,
     private authService: NbAuthService,
-  ) {
+    private router: Router,
+    ) {
     this.materialTheme$ = this.themeService.onThemeChange()
       .pipe(map(theme => {
         const themeName: string = theme?.name || '';
@@ -105,8 +107,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
       )
       .subscribe(title => {
         if (title === 'Profile') {
-          // log
-          // console.error('Profile');
+          this.router.navigateByUrl('/pages/general/profile');
         }
         if (title === 'Log out') {
           localStorage.clear();

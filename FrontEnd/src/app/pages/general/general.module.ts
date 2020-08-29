@@ -19,6 +19,7 @@ import { CurrencyComponent } from './currency/currency.component';
 import { AccountComponent } from './account/account.component';
 import { CategoryComponent } from './category/category.component';
 import { ReminderComponent } from './reminder/reminder.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { ReminderComponent } from './reminder/reminder.component';
     AccountComponent,
     CategoryComponent,
     ReminderComponent,
+    ProfileComponent,
   ],
   imports: [
     ThemeModule,

@@ -6,6 +6,7 @@ import { CurrencyComponent } from './currency/currency.component';
 import { AccountComponent } from './account/account.component';
 import { CategoryComponent } from './category/category.component';
 import { ReminderComponent } from './reminder/reminder.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,10 @@ const routes: Routes = [
       {
         path: 'reminder',
         component: ReminderComponent,
+      },
+      {
+        path: 'profile',
+        component: ProfileComponent,
       },
     ],
   },
