@@ -1,6 +1,5 @@
 package lu.cadeodinheiro.controller;
 
-import lu.cadeodinheiro.domain.user.User;
 import lu.cadeodinheiro.dto.UserChangeDTO;
 import lu.cadeodinheiro.utils.JwtTokenUtil;
 import lu.cadeodinheiro.auth.JwtRequest;

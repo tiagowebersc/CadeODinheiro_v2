@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CurrencyService } from '../../../services/currency.service';
 
 @Component({
   selector: 'cod-currency',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./currency.component.scss'],
 })
 export class CurrencyComponent implements OnInit {
+  currencies;
 
-  constructor() { }
+  constructor(private currencyService: CurrencyService) { }
 
   ngOnInit() {
+    this.currencyService.get()
+      .subscribe(currencies => {
+        this.currencies = currencies;
+      });
   }
 
   settings = {
@@ -34,24 +40,24 @@ export class CurrencyComponent implements OnInit {
     },
   };
 
-  data = [
-    {
-      acronym: 'USD',
-      name: 'US Dollar',
-      prefix: '$',
-      suffix: '',
-    },
-    {
-      acronym: 'EUR',
-      name: 'Euro',
-      prefix: '',
-      suffix: '€',
-    },
-    {
-      acronym: 'BRL',
-      name: 'Real',
-      prefix: 'R$',
-      suffix: '',
-    },
-  ];
+  // currencies = [
+  //   {
+  //     acronym: 'USD',
+  //     name: 'US Dollar',
+  //     prefix: '$',
+  //     suffix: '',
+  //   },
+  //   {
+  //     acronym: 'EUR',
+  //     name: 'Euro',
+  //     prefix: '',
+  //     suffix: '€',
+  //   },
+  //   {
+  //     acronym: 'BRL',
+  //     name: 'Real',
+  //     prefix: 'R$',
+  //     suffix: '',
+  //   },
+  // ];
 }
