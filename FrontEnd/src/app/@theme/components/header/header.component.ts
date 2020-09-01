@@ -49,8 +49,23 @@ export class HeaderComponent implements OnInit, OnDestroy {
       name: 'Material Dark',
     },
   ];
-
   currentTheme = 'default';
+
+  languages = [
+    {
+      value: 'EN',
+      name: 'English',
+    },
+    {
+      value: 'FR',
+      name: 'Français',
+    },
+    {
+      value: 'PT',
+      name: 'Português',
+    },
+  ];
+  currentLanguage = 'EN';
 
   userMenu = [ { title: 'Profile' }, { title: 'Log out'  } ];
 
@@ -124,6 +139,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   changeTheme(themeName: string) {
     this.themeService.changeTheme(themeName);
   }
+  changeLanguage(languageName: string) {}
 
   toggleSidebar(): boolean {
     this.sidebarService.toggle(true, 'menu-sidebar');

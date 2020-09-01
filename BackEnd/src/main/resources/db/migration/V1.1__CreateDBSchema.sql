@@ -28,21 +28,21 @@ CREATE TABLE IF NOT EXISTS `COD2`.`currency` (
 -- Table `COD2`.`account`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `COD2`.`account` (
-                                                `idAccount` INT NOT NULL,
-                                                `user_idUser` INT NOT NULL,
-                                                `creationDate` DATE NOT NULL,
+                                                `id_account` INT NOT NULL,
+                                                `id_user` INT NOT NULL,
+                                                `creation_date` DATE NOT NULL,
                                                 `currency_acronym` VARCHAR(6) NOT NULL,
-                                                `accountType` VARCHAR(1) NOT NULL,
+                                                `account_type` VARCHAR(2) NOT NULL,
                                                 `name` VARCHAR(60) NOT NULL,
                                                 `description` VARCHAR(200) NOT NULL,
-                                                `balance` DECIMAL(9,2) NOT NULL,
-                                                `displayOnResumeScreen` TINYINT(1) NOT NULL,
-                                                `isActive` TINYINT(1) NOT NULL,
-                                                PRIMARY KEY (`idAccount`),
-                                                INDEX `fk_account_user_idx` (`user_idUser` ASC),
+                                                `balance` DECIMAL(16,2) NOT NULL,
+                                                `display_on_dashboard` TINYINT(1) NOT NULL,
+                                                `is_active` TINYINT(1) NOT NULL,
+                                                PRIMARY KEY (`id_account`),
+                                                INDEX `fk_account_user_idx` (`id_user` ASC),
                                                 INDEX `fk_account_currency_idx` (`currency_acronym` ASC),
                                                 CONSTRAINT `fk_account_user`
-                                                    FOREIGN KEY (`user_idUser`)
+                                                    FOREIGN KEY (`id_user`)
                                                         REFERENCES `COD2`.`user` (`id_user`)
                                                         ON DELETE NO ACTION
                                                         ON UPDATE NO ACTION,
@@ -91,7 +91,7 @@ CREATE TABLE IF NOT EXISTS `COD2`.`creditCardSettings` (
                                                            INDEX `fk_CreditCardSettings_account_idx` (`account_idAccount` ASC),
                                                            CONSTRAINT `fk_CreditCardSettings_account`
                                                                FOREIGN KEY (`account_idAccount`)
-                                                                   REFERENCES `COD2`.`account` (`idAccount`)
+                                                                   REFERENCES `COD2`.`account` (`id_account`)
                                                                    ON DELETE NO ACTION
                                                                    ON UPDATE NO ACTION)
     ENGINE = InnoDB;
@@ -167,7 +167,7 @@ CREATE TABLE IF NOT EXISTS `COD2`.`transactionAccount` (
                                                            INDEX `fk_transactionAccount_transaction_idx` (`transaction_idTransaction` ASC),
                                                            CONSTRAINT `fk_transactionAccount_account`
                                                                FOREIGN KEY (`account_idAccount`)
-                                                                   REFERENCES `COD2`.`account` (`idAccount`)
+                                                                   REFERENCES `COD2`.`account` (`id_account`)
                                                                    ON DELETE NO ACTION
                                                                    ON UPDATE NO ACTION,
                                                            CONSTRAINT `fk_transactionAccount_transaction`
