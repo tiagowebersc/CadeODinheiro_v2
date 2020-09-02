@@ -1,8 +1,7 @@
-package lu.cadeodinheiro.domain.account;
+package lu.cadeodinheiro.domain.category;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
-import lu.cadeodinheiro.domain.currency.Currency;
 import lu.cadeodinheiro.domain.user.User;
 
 import javax.persistence.*;
@@ -10,11 +9,11 @@ import java.util.Date;
 
 @Data
 @Entity
-@Table(name = "account")
-public class Account {
+@Table(name = "category")
+public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idAccount;
+    private long idCategory;
 
     @JsonIgnore
     @ManyToOne
@@ -24,25 +23,18 @@ public class Account {
     @JsonIgnore
     private Date creationDate;
 
-    @ManyToOne
-    @JoinColumn(name = "currency_acronym")
-    private Currency currency;
-
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private AccountType accountType;
+    private CategoryType categoryType;
 
     @Column(length = 60, nullable = false)
-    private String name;
-
-    @Column(length = 200, nullable = false)
     private String description;
 
-    @Column(precision=16, scale=2)
-    private double balance;
-
-    private boolean displayOnDashboard;
-
     private boolean isActive;
+
+    @ManyToOne
+    @JoinColumn(name = "upperCategory_id")
+    private Category category;
+
 
 }
