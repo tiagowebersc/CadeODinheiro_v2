@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CategoryService } from '../../../services/category.service';
 
 @Component({
   selector: 'cod-category',
@@ -6,10 +7,33 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./category.component.scss'],
 })
 export class CategoryComponent implements OnInit {
+  categories: any;
 
-  constructor() { }
+  constructor(private categoryService: CategoryService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.categoryService.get()
+      .subscribe(categories => {
+        this.categories = categories;
+      });
   }
 
+  settings = {
+    columns: {
+      categoryType: {
+        title: 'Category Type',
+      },
+      description: {
+        title: 'Description',
+      },
+      active: {
+        title: 'Active?',
+      },
+    },
+    actions: {
+      add: false,
+      edit: false,
+      delete: false,
+    },
+  };
 }

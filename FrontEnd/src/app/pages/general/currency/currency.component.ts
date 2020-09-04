@@ -7,7 +7,7 @@ import { CurrencyService } from '../../../services/currency.service';
   styleUrls: ['./currency.component.scss'],
 })
 export class CurrencyComponent implements OnInit {
-  currencies;
+  currencies: any;
 
   constructor(private currencyService: CurrencyService) { }
 
@@ -39,25 +39,4 @@ export class CurrencyComponent implements OnInit {
       delete: false,
     },
   };
-
-  // currencies = [
-  //   {
-  //     acronym: 'USD',
-  //     name: 'US Dollar',
-  //     prefix: '$',
-  //     suffix: '',
-  //   },
-  //   {
-  //     acronym: 'EUR',
-  //     name: 'Euro',
-  //     prefix: '',
-  //     suffix: '€',
-  //   },
-  //   {
-  //     acronym: 'BRL',
-  //     name: 'Real',
-  //     prefix: 'R$',
-  //     suffix: '',
-  //   },
-  // ];
 }
