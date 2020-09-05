@@ -18,7 +18,7 @@ public class ReminderController {
     public ResponseEntity<?> findAll() { return ResponseEntity.ok(reminderService.findAll()); }
 
     @GetMapping(value = "/reminders/{id}")
-    public ResponseEntity<?> findByAcronym(@PathVariable(value = "id") long id){
+    public ResponseEntity<?> findById(@PathVariable(value = "id") long id){
         return ResponseEntity.ok(reminderService.findById(id));
     }
 }

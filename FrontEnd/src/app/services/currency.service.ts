@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
+import { Currency } from '../model/currency';
 
 @Injectable({
   providedIn: 'root',
@@ -25,13 +26,6 @@ export class CurrencyService {
     // console.log(error.message);
     return throwError('A data error occurred, please try again.');
   }
-}
-
-interface Currency {
-  acronym: string;
-  name: string;
-  prefix: string;
-  suffix: string;
 }
 
 interface CurrencyResponse {

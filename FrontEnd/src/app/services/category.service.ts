@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
+import { Category } from '../model/category';
 
 @Injectable({
   providedIn: 'root',
@@ -25,14 +26,6 @@ export class CategoryService {
     // console.log(error.message);
     return throwError('A data error occurred, please try again.');
   }
-}
-
-interface Category {
-  idCategory: number;
-  categoryType: string;
-  description: string;
-  category: Category;
-  active: boolean;
 }
 
 interface CategoryResponse {

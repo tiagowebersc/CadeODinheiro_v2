@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS `COD2`.`currency` (
 -- Table `COD2`.`account`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `COD2`.`account` (
-                                                `id_account` INT NOT NULL,
+                                                `id_account` INT NOT NULL AUTO_INCREMENT,
                                                 `user_id` INT NOT NULL,
                                                 `creation_date` DATE NOT NULL,
                                                 `currency_acronym` VARCHAR(6) NOT NULL,
@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `COD2`.`account` (
 -- Table `COD2`.`category`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `COD2`.`category` (
-                                                 `id_category` INT NOT NULL,
+                                                 `id_category` INT NOT NULL AUTO_INCREMENT,
                                                  `user_id` INT NOT NULL,
                                                  `creation_date` DATE NOT NULL,
                                                  `category_type` VARCHAR(2) NOT NULL,
@@ -85,7 +85,7 @@ CREATE TABLE IF NOT EXISTS `COD2`.`category` (
 -- Table `COD2`.`creditCardSetting`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `COD2`.`creditCardSetting` (
-                                                          `id_credit_card_setting` INT NOT NULL,
+                                                          `id_credit_card_setting` INT NOT NULL AUTO_INCREMENT,
                                                           `account_id` INT NOT NULL,
                                                           `bill_closing_day` INT NOT NULL,
                                                           INDEX `fk_CreditCardSetting_account_idx` (`account_id` ASC),
@@ -103,7 +103,7 @@ CREATE TABLE IF NOT EXISTS `COD2`.`creditCardSetting` (
 -- Table `COD2`.`reminder`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `COD2`.`reminder` (
-                                                 `id_reminder` INT NOT NULL,
+                                                 `id_reminder` INT NOT NULL AUTO_INCREMENT,
                                                  `user_id` INT NOT NULL,
                                                  `creation_date` DATE NOT NULL,
                                                  `category_id` INT NOT NULL,
@@ -133,7 +133,7 @@ CREATE TABLE IF NOT EXISTS `COD2`.`reminder` (
 -- Table `COD2`.`transaction`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `COD2`.`transaction` (
-                                                    `id_transaction` INT NOT NULL,
+                                                    `id_transaction` INT NOT NULL AUTO_INCREMENT,
                                                     `user_id` INT NOT NULL,
                                                     `creation_date` DATE NOT NULL,
                                                     `date` DATE NOT NULL,
@@ -160,7 +160,7 @@ CREATE TABLE IF NOT EXISTS `COD2`.`transaction` (
 -- Table `COD2`.`transactionAccount`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `COD2`.`transactionAccount` (
-                                                           `id_transaction_account` INT NOT NULL,
+                                                           `id_transaction_account` INT NOT NULL AUTO_INCREMENT,
                                                            `account_id` INT NOT NULL,
                                                            `transaction_id` INT NOT NULL,
                                                            `amount` DECIMAL(16,2) NOT NULL,
@@ -184,7 +184,7 @@ CREATE TABLE IF NOT EXISTS `COD2`.`transactionAccount` (
 -- Table `COD2`.`transactionCategory`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `COD2`.`transactionCategory` (
-                                                            `id_transaction_category` INT NOT NULL,
+                                                            `id_transaction_category` INT NOT NULL AUTO_INCREMENT,
                                                             `transaction_id` INT NOT NULL,
                                                             `category_id` INT NOT NULL,
                                                             `category_type` VARCHAR(2) NOT NULL,
@@ -209,7 +209,7 @@ CREATE TABLE IF NOT EXISTS `COD2`.`transactionCategory` (
 -- Table `COD2`.`linkedTransactions`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `COD2`.`linkedTransactions` (
-                                                           `id_linked_transactions` INT NOT NULL,
+                                                           `id_linked_transactions` INT NOT NULL AUTO_INCREMENT,
                                                            `transaction_id_origin` INT NOT NULL,
                                                            `transaction_id_destiny` INT NOT NULL,
                                                            INDEX `fk_linkedTransactions_transaction1_idx` (`transaction_id_origin` ASC),

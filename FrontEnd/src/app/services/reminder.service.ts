@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
+import { Reminder } from '../model/reminder';
 
 @Injectable({
   providedIn: 'root',
@@ -25,17 +26,6 @@ export class ReminderService {
     // console.log(error.message);
     return throwError('A data error occurred, please try again.');
   }
-}
-
-interface Reminder {
-  idReminder: number;
-  // category: Category;
-  description: string;
-  amount: number;
-  startDate: Date;
-  endDate: Date;
-  reminderType: string;
-  active: boolean;
 }
 
 interface ReminderResponse {
