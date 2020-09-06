@@ -34,6 +34,7 @@ public class Reminder {
     @Column(precision = 16, scale = 2)
     private double amount;
 
+    @Column(nullable = false)
     private Date startDate;
 
     private Date endDate;

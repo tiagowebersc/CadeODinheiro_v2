@@ -4,6 +4,9 @@
     </nb-card-header>
   
     <nb-card-body>
+      <button nbButton (click)="openNewPage()">
+        Create new category
+      </button>
         <ng2-smart-table [settings]="settings" [source]="categories"></ng2-smart-table>
     </nb-card-body>
   </nb-card>

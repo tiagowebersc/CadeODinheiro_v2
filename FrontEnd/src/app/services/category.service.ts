@@ -22,6 +22,13 @@ export class CategoryService {
       );
   }
 
+  save(category: Category) {
+    return this.http.post<Category>('http://localhost:8080/categories', category)
+    .pipe(
+      catchError(this.handleError),
+    );
+  }
+
   private handleError(error: HttpErrorResponse) {
     // console.log(error.message);
     return throwError('A data error occurred, please try again.');

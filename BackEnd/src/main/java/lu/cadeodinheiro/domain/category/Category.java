@@ -34,7 +34,7 @@ public class Category {
 
     @ManyToOne
     @JoinColumn(name = "upperCategory_id")
-    private Category category;
+    private Category upperCategory;
 
 
 }

@@ -110,7 +110,7 @@ CREATE TABLE IF NOT EXISTS `COD2`.`reminder` (
                                                  `description` VARCHAR(100) NOT NULL,
                                                  `amount` DECIMAL(16,2) NOT NULL,
                                                  `start_date` DATE NOT NULL,
-                                                 `end_date` DATE NOT NULL,
+                                                 `end_date` DATE,
                                                  `reminder_type` VARCHAR(2) NOT NULL,
                                                  `is_active` TINYINT(1) NOT NULL,
                                                  PRIMARY KEY (`id_reminder`),

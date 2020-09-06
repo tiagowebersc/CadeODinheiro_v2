@@ -22,6 +22,13 @@ export class ReminderService {
       );
   }
 
+  save(reminder: Reminder) {
+    return this.http.post<Reminder>('http://localhost:8080/reminders', reminder)
+    .pipe(
+      catchError(this.handleError),
+    );
+  }
+
   private handleError(error: HttpErrorResponse) {
     // console.log(error.message);
     return throwError('A data error occurred, please try again.');

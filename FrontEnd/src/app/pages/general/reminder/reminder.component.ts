@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ReminderService } from '../../../services/reminder.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'cod-reminder',
@@ -9,13 +10,20 @@ import { ReminderService } from '../../../services/reminder.service';
 export class ReminderComponent implements OnInit {
   reminders: any;
 
-  constructor(private reminderService: ReminderService) { }
+  constructor(
+    private reminderService: ReminderService,
+    private router: Router,
+    ) { }
 
   ngOnInit() {
     this.reminderService.get()
       .subscribe(reminders => {
         this.reminders = reminders;
       });
+  }
+
+  public openNewPage() {
+    this.router.navigateByUrl('/pages/general/reminder/new');
   }
 
   settings = {

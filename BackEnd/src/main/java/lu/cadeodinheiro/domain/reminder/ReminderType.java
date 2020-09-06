@@ -1,9 +1,9 @@
 package lu.cadeodinheiro.domain.reminder;
 
 public enum ReminderType {
-    UN,
+    SG,
     MT,
     QT,
     SM,
-    AN
+    YR
 }

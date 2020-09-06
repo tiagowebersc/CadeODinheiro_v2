@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AccountService } from '../../../../services/account.service';
+import { ToastrService } from '../../../../services/toastr.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -14,6 +15,7 @@ export class NewAccountComponent implements OnInit {
   constructor(
     private router: Router,
     private accountService: AccountService,
+    private toastrService: ToastrService,
   ) { }
 
   ngOnInit(): void {
@@ -29,9 +31,15 @@ export class NewAccountComponent implements OnInit {
 
   onSubmit(newAccountItem) {
     this.accountService.save(newAccountItem)
-      .subscribe();
-
-      this.router.navigateByUrl('/pages/general/account');
+      .subscribe(
+        data => {
+          this.toastrService.makeToastSucess('New account created!');
+          this.router.navigateByUrl('/pages/general/account');
+        },
+        error => {
+          this.toastrService.makeToastDanger(error);
+        },
+      );
   }
 
 }
