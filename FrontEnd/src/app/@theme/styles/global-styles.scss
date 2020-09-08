@@ -1,0 +1,31 @@
+nb-card-body {
+    overflow: visible;
+    padding-top: 0;
+  }
+
+  .margin-top {
+      margin-top: 1rem;
+  }
+  .margin-botton {
+    margin-bottom: 1rem;
+}
+
+  .full-name-inputs,
+  .validation-checkboxes {
+    display: flex;
+    margin: 0 -0.5rem;
+    }
+  
+  .checkbox-radio {
+    display: flex;
+  }
+  
+  .demo-items {
+    flex: 1 0 33%;
+  }
+
+checkbox-filter input {
+    width: 25px;
+    height: 25px;
+    display: unset;
+}

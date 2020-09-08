@@ -8,7 +8,7 @@
           (ngSubmit)="onSubmit(form.value)">
           <label for="description">Description</label>
           <input name="description" id="description" formControlName="description" type="text" nbInput fullWidth placeholder="Description">
-          <label for="reminderType">Reminder type</label>
+          <label class="margin-top" for="reminderType">Reminder type</label>
           <nb-select name="reminderType" id="reminderType" formControlName="reminderType" fullWidth>
             <nb-option value="SG">Single</nb-option>
             <nb-option value="MT">Monthly</nb-option>
@@ -16,24 +16,24 @@
             <nb-option value="SM">Semesterly</nb-option>
             <nb-option value="YR">Yearly</nb-option>
           </nb-select>
-          <label for="category">Category</label>
+          <label class="margin-top" for="category">Category</label>
           <input name="category" id="category" formControlName="category" type="text" nbInput fullWidth placeholder="Category">
-          <div class="full-name-inputs">
-            <div>
-                <label for="startDate">Start date</label>
+          <div style="display: flex;">
+            <div style="width: 100%;">
+                <label class="margin-top" for="startDate">Start date</label>
                 <input  name="startDate" id="startDate" formControlName="startDate" type="date" nbInput fullWidth placeholder="Start date">
             </div>
-            <div>
-                <label for="endDate">End date</label>
+            <div style="width: 100%;">
+                <label class="margin-top" for="endDate">End date</label>
                 <input  name="endDate" id="endDate" formControlName="endDate" type="date" nbInput fullWidth placeholder="End date">
             </div>
           </div>
-          <label for="amount">Amount</label>
+          <label class="margin-top" for="amount">Amount</label>
           <input name="amount" id="amount" formControlName="amount" type="number" nbInput fullWidth placeholder="Amount">
-          <div>
+          <div class="margin-top">
             <nb-checkbox name="active" id="active" formControlName="active">Active?</nb-checkbox>
           </div>
-          <button nbButton type="submit" [disabled]="!form.valid">
+          <button class="margin-top" nbButton type="submit" [disabled]="!form.valid">
             Create new reminder
           </button>
         </form>

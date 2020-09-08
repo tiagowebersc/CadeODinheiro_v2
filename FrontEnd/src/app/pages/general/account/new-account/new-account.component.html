@@ -8,9 +8,9 @@
           (ngSubmit)="onSubmit(form.value)">
           <label for="name">Name</label>
           <input name="name" id="name" formControlName="name" type="text" nbInput fullWidth placeholder="Name">
-          <label for="description">Description</label>
+          <label class="margin-top" for="description">Description</label>
           <textarea name="description" id="description" formControlName="description" rows="5" nbInput fullWidth placeholder="Description"></textarea>
-          <label for="accountType">Account type</label>
+          <label class="margin-top" for="accountType">Account type</label>
           <nb-select name="accountType" id="accountType" formControlName="accountType" fullWidth>
             <nb-option value="WT">Wallet</nb-option>
             <nb-option value="BA">Bank account</nb-option>
@@ -18,18 +18,18 @@
             <nb-option value="CC">Credit card</nb-option>
             <nb-option value="MV">Meal voucher</nb-option>
           </nb-select>
-          <label for="currency">Currency</label>
+          <label class="margin-top" for="currency">Currency</label>
           <nb-select name="currency" id="currency" formControlName="currency" fullWidth>
             <nb-option value="EUR">Euro</nb-option>
             <nb-option value="USD">Dollar</nb-option>
           </nb-select>
-          <div>
+          <div class="margin-top" >
             <nb-checkbox name="displayOnDashboard" id="displayOnDashboard" formControlName="displayOnDashboard">Display on dashboard</nb-checkbox>
           </div>
-          <div>
+          <div class="margin-top" >
             <nb-checkbox name="active" id="active" formControlName="active">Active?</nb-checkbox>
           </div>
-          <button nbButton type="submit" [disabled]="!form.valid">
+          <button class="margin-top" nbButton type="submit" [disabled]="!form.valid">
             Create new account
           </button>
         </form>

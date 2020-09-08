@@ -2,23 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0e50e3d4-77be-41ce-b00c-d0ed8ab0abf4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/dto/CategoryDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/dto/ReminderDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/controller/CategoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/controller/ReminderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/controller/ReminderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/domain/category/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/domain/category/Category.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/domain/reminder/Reminder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/domain/reminder/Reminder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/domain/reminder/ReminderType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/domain/reminder/ReminderType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/service/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/service/CategoryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/service/ReminderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/service/ReminderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V1.1__CreateDBSchema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V1.1__CreateDBSchema.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/app/pages/general/category/category.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/app/pages/general/category/category.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/app/pages/general/category/category.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/app/pages/general/category/category.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/app/pages/general/general-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/app/pages/general/general-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/app/pages/general/general.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/app/pages/general/general.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/app/pages/general/reminder/reminder.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/app/pages/general/reminder/reminder.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/app/pages/general/reminder/reminder.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/app/pages/general/reminder/reminder.component.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -46,56 +30,7 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/controller/AccountController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="27" selection-start-line="27" selection-end-line="27" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/domain/reminder/Reminder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/controller/CategoryController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="75" selection-start-line="9" selection-start-column="75" selection-end-line="9" selection-end-column="75" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/controller/ReminderController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="75" selection-start-line="9" selection-start-column="75" selection-end-line="9" selection-end-column="75" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -424,7 +359,7 @@
       <workItem from="1597731814782" duration="677000" />
       <workItem from="1598199441827" duration="1088000" />
       <workItem from="1598803845976" duration="21978000" />
-      <workItem from="1599294474195" duration="9394000" />
+      <workItem from="1599294474195" duration="9937000" />
     </task>
     <servers />
   </component>
@@ -446,11 +381,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78143000" />
+    <option name="totallyTimeSpent" value="78686000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="987" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25152627" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />

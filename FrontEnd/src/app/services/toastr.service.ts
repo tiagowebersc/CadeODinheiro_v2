@@ -17,7 +17,7 @@ export class ToastrService {
   config: NbToastrConfig;
 
   destroyByClick = true;
-  duration = 2000;
+  duration = 4000;
   hasIcon = true;
   position: NbGlobalPosition = NbGlobalPhysicalPosition.TOP_RIGHT;
   preventDuplicates = false;

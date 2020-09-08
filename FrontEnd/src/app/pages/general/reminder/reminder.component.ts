@@ -45,6 +45,14 @@ export class ReminderComponent implements OnInit {
       },
       active: {
         title: 'Active?',
+        filter: {
+          type: 'checkbox',
+          config: {
+            true: 'true',
+            false: 'false',
+            resetText: 'clear',
+          },
+        },
       },
     },
     actions: {

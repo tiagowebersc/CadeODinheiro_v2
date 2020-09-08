@@ -39,9 +39,25 @@ export class AccountComponent implements OnInit {
       },
       displayOnDashboard: {
         title: 'Display on dashboard',
+        filter: {
+          type: 'checkbox',
+          config: {
+            true: 'true',
+            false: 'false',
+            resetText: 'clear',
+          },
+        },
       },
       active: {
         title: 'Active?',
+        filter: {
+          type: 'checkbox',
+          config: {
+            true: 'true',
+            false: 'false',
+            resetText: 'clear',
+          },
+        },
       },
     },
     actions: {
