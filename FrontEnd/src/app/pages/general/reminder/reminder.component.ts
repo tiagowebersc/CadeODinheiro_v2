@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ReminderService } from '../../../services/reminder.service';
 import { Router } from '@angular/router';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'cod-reminder',
@@ -13,6 +14,7 @@ export class ReminderComponent implements OnInit {
   constructor(
     private reminderService: ReminderService,
     private router: Router,
+    private datepipe: DatePipe,
     ) { }
 
   ngOnInit() {
@@ -36,15 +38,39 @@ export class ReminderComponent implements OnInit {
       },
       startDate: {
         title: 'Start date',
+        type: 'date',
+        valuePrepareFunction: (date) => {
+          if (date) {
+            return this.datepipe.transform(date, 'dd/MM/yyyy');
+          } else {
+            return null;
+          }
+        },
+        filter: false,
       },
       endDate: {
         title: 'End date',
+        valuePrepareFunction: (date) => {
+          if (date) {
+            return this.datepipe.transform(date, 'dd/MM/yyyy');
+          } else {
+            return null;
+          }
+        },
+        filter: false,
       },
       reminderType: {
         title: 'Reminder type',
+        valuePrepareFunction: (value) => this.reminderService.getReminderTypeDescription(value),
+        filterFunction: (cell?: any, search?: string) => {
+          if (search.length > 0) {
+            return this.reminderService.getReminderTypeDescription(cell).toLowerCase().match(search.toLowerCase());
+          }
+        },
       },
       active: {
         title: 'Active?',
+        valuePrepareFunction: (value) => value ? 'Yes' : 'No',
         filter: {
           type: 'checkbox',
           config: {

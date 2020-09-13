@@ -7,6 +7,8 @@ import { Subject, Observable } from 'rxjs';
 import { RippleService } from '../../../@core/utils/ripple.service';
 import { NbAuthJWTToken, NbAuthService } from '@nebular/auth';
 import { Router } from '@angular/router';
+// pre-load stuff
+import { CurrencyService } from '../../../services/currency.service';
 
 @Component({
   selector: 'cod-header',
@@ -78,12 +80,14 @@ export class HeaderComponent implements OnInit, OnDestroy {
     private rippleService: RippleService,
     private authService: NbAuthService,
     private router: Router,
+    private currencyService: CurrencyService,
     ) {
     this.materialTheme$ = this.themeService.onThemeChange()
       .pipe(map(theme => {
         const themeName: string = theme?.name || '';
         return themeName.startsWith('material');
       }));
+
     this.authService.onTokenChange()
       .subscribe((token: NbAuthJWTToken) => {
         if (token.isValid()) {
@@ -92,6 +96,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
           // console.error(this.userToken);
         }
       });
+
+    // pre-load some stuff used
+    this.currencyService.loadCurrencyList();
   }
 
   ngOnInit() {

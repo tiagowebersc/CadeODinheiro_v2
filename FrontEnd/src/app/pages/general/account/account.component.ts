@@ -30,6 +30,12 @@ export class AccountComponent implements OnInit {
     columns: {
       accountType: {
         title: 'Account type',
+        valuePrepareFunction: (value) => this.accountService.getAccountTypeDescription(value),
+        filterFunction: (cell?: any, search?: string) => {
+          if (search.length > 0) {
+            return this.accountService.getAccountTypeDescription(cell).toLowerCase().match(search.toLowerCase());
+          }
+        },
       },
       name: {
         title: 'Name',
@@ -39,6 +45,7 @@ export class AccountComponent implements OnInit {
       },
       displayOnDashboard: {
         title: 'Display on dashboard',
+        valuePrepareFunction: (value) => value ? 'Yes' : 'No',
         filter: {
           type: 'checkbox',
           config: {
@@ -50,6 +57,7 @@ export class AccountComponent implements OnInit {
       },
       active: {
         title: 'Active?',
+        valuePrepareFunction: (value) => value ? 'Yes' : 'No',
         filter: {
           type: 'checkbox',
           config: {

@@ -8,9 +8,19 @@ import { Reminder } from '../model/reminder';
   providedIn: 'root',
 })
 export class ReminderService {
+  private reminderTypeMap: Map<string, string> = new Map();
 
   constructor(private http: HttpClient) {
-   }
+    this.reminderTypeMap.set('SG', 'Single');
+    this.reminderTypeMap.set('MT', 'Monthly');
+    this.reminderTypeMap.set('QT', 'Quarterly');
+    this.reminderTypeMap.set('SM', 'Semesterly');
+    this.reminderTypeMap.set('YR', 'Yearly');
+  }
+
+  getReminderTypeDescription(reminderType: string) {
+    return this.reminderTypeMap.get(reminderType);
+  }
 
    get() {
     return this.http.get<ReminderResponse>('http://localhost:8080/reminders')

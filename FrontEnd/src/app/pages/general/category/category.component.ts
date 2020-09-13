@@ -30,12 +30,19 @@ export class CategoryComponent implements OnInit {
     columns: {
       categoryType: {
         title: 'Category Type',
+        valuePrepareFunction: (value) => this.categoryService.getCategoryTypeDescription(value),
+        filterFunction: (cell?: any, search?: string) => {
+          if (search.length > 0) {
+            return this.categoryService.getCategoryTypeDescription(cell).toLowerCase().match(search.toLowerCase());
+          }
+        },
       },
       description: {
         title: 'Description',
       },
       active: {
         title: 'Active?',
+        valuePrepareFunction: (value) => value ? 'Yes' : 'No',
         filter: {
           type: 'checkbox',
           config: {

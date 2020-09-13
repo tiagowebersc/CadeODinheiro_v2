@@ -8,8 +8,20 @@ import { Currency } from '../model/currency';
   providedIn: 'root',
 })
 export class CurrencyService {
+  currenciesReponse: CurrencyResponse = null;
 
   constructor(private http: HttpClient) {
+   }
+
+   loadCurrencyList() {
+     this.get().
+     subscribe(currencies => {
+      this.currenciesReponse = currencies;
+    });
+   }
+
+   getFormattedValue(currency: string, value: number) {
+     // let toReturn = '';
    }
 
    get() {
@@ -22,12 +34,17 @@ export class CurrencyService {
       );
   }
 
+
+  getList() {
+    return this.currenciesReponse;
+  }
+
   private handleError(error: HttpErrorResponse) {
     // console.log(error.message);
     return throwError('A data error occurred, please try again.');
   }
 }
 
-interface CurrencyResponse {
+class CurrencyResponse {
   currencies: Currency[];
 }

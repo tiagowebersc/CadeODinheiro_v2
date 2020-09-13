@@ -8,9 +8,19 @@ import { Account } from '../model/account';
   providedIn: 'root',
 })
 export class AccountService {
+  private accountTypeMap: Map<string, string> = new Map();
 
   constructor(private http: HttpClient) {
+    this.accountTypeMap.set('WT', 'Wallet');
+    this.accountTypeMap.set('BA', 'Bank account');
+    this.accountTypeMap.set('SV', 'Saving account');
+    this.accountTypeMap.set('CC', 'Credit card');
+    this.accountTypeMap.set('MV', 'Meal voucher');
    }
+
+   getAccountTypeDescription(accountType: string) {
+    return this.accountTypeMap.get(accountType);
+  }
 
    get() {
     return this.http.get<AccountResponse>('http://localhost:8080/accounts')

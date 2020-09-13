@@ -12,10 +12,7 @@ export class CurrencyComponent implements OnInit {
   constructor(private currencyService: CurrencyService) { }
 
   ngOnInit() {
-    this.currencyService.get()
-      .subscribe(currencies => {
-        this.currencies = currencies;
-      });
+    this.currencies = this.currencyService.getList();
   }
 
   settings = {

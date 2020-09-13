@@ -2,6 +2,7 @@
 I want a multi-language system
 I want to create and manage a user
 I want to configure my account’s currency
+I want to set the format of numbers and dates
 — register
 I want to add multiple accounts to my user (wallet, banking account, credit card, meal voucher)
 I want to add expense and income categories
