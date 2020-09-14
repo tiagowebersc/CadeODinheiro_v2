@@ -29,3 +29,9 @@ checkbox-filter input {
     height: 25px;
     display: unset;
 }
+
+.ng2-custom-actions-inline {
+  .ng2-smart-action-custom-custom {
+    margin-bottom: -45px !important;
+  }
+}

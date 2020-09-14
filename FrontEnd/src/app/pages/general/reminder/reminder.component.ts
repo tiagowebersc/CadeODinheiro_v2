@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ReminderService } from '../../../services/reminder.service';
 import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
+import { CurrencyService } from '../../../services/currency.service';
 
 @Component({
   selector: 'cod-reminder',
@@ -13,6 +14,7 @@ export class ReminderComponent implements OnInit {
 
   constructor(
     private reminderService: ReminderService,
+    private currencyService: CurrencyService,
     private router: Router,
     private datepipe: DatePipe,
     ) { }
@@ -28,13 +30,25 @@ export class ReminderComponent implements OnInit {
     this.router.navigateByUrl('/pages/general/reminder/new');
   }
 
+  onCustomAction(event) {
+    switch ( event.action) {
+      case 'editAction':
+        this.router.navigateByUrl('/pages/general/reminder/new');
+        break;
+     case 'otherAction':
+        // test
+    }
+  }
+
   settings = {
+    rowClassFunction: (row) => 'ng2-custom-actions-inline',
     columns: {
       description: {
         title: 'Description',
       },
       amount: {
         title: 'Amount',
+        valuePrepareFunction: (value) => this.currencyService.getFormattedValue('', value),
       },
       startDate: {
         title: 'Start date',
@@ -85,6 +99,15 @@ export class ReminderComponent implements OnInit {
       add: false,
       edit: false,
       delete: false,
+      columnTitle: 'Edit',
+      position: 'right',
+      class: 'action-column',
+      custom: [
+        {
+          name: 'editAction',
+          title: '<i class="ion-forward"></i>',
+        },
+      ],
     },
   };
 }

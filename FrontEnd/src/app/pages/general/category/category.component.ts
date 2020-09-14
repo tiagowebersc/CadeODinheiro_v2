@@ -26,7 +26,18 @@ export class CategoryComponent implements OnInit {
     this.router.navigateByUrl('/pages/general/category/new');
   }
 
+  onCustomAction(event) {
+    switch ( event.action) {
+      case 'editAction':
+        this.router.navigateByUrl('/pages/general/category/new');
+        break;
+     case 'otherAction':
+        // test
+    }
+  }
+
   settings = {
+    rowClassFunction: (row) => 'ng2-custom-actions-inline',
     columns: {
       categoryType: {
         title: 'Category Type',
@@ -57,6 +68,15 @@ export class CategoryComponent implements OnInit {
       add: false,
       edit: false,
       delete: false,
+      columnTitle: 'Edit',
+      position: 'right',
+      class: 'action-column',
+      custom: [
+        {
+          name: 'editAction',
+          title: '<i class="ion-forward"></i>',
+        },
+      ],
     },
   };
 }

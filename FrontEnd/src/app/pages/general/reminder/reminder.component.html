@@ -7,6 +7,6 @@
       <button class="margin-botton" nbButton (click)="openNewPage()">
         Create new reminder
       </button>
-        <ng2-smart-table [settings]="settings" [source]="reminders"></ng2-smart-table>
+        <ng2-smart-table [settings]="settings" [source]="reminders" (custom)="onCustomAction($event)"></ng2-smart-table>
     </nb-card-body>
   </nb-card>

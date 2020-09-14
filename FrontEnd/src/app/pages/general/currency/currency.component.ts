@@ -22,6 +22,12 @@ export class CurrencyComponent implements OnInit {
       },
       name: {
         title: 'Name',
+        valuePrepareFunction: (value) => this.currencyService.getCurrencyDescription(value),
+        filterFunction: (cell?: any, search?: string) => {
+          if (search.length > 0) {
+            return this.currencyService.getCurrencyDescription(cell).toLowerCase().match(search.toLowerCase());
+          }
+        },
       },
       prefix: {
         title: 'Prefix',

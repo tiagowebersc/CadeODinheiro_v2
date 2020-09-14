@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AccountService } from '../../../services/account.service';
 import { Router } from '@angular/router';
+import { CurrencyService } from '../../../services/currency.service';
 
 @Component({
   selector: 'cod-account',
@@ -12,6 +13,7 @@ export class AccountComponent implements OnInit {
 
   constructor(
     private accountService: AccountService,
+    private currencyService: CurrencyService,
     private router: Router,
     ) { }
 
@@ -26,7 +28,19 @@ export class AccountComponent implements OnInit {
     this.router.navigateByUrl('/pages/general/account/new');
   }
 
+  onCustomAction(event) {
+    switch ( event.action) {
+      case 'editAction':
+        // console.log(event.data.idAccount);
+        this.router.navigateByUrl('/pages/general/account/new');
+        break;
+     case 'otherAction':
+        // test
+    }
+  }
+
   settings = {
+    rowClassFunction: (row) => 'ng2-custom-actions-inline',
     columns: {
       accountType: {
         title: 'Account type',
@@ -42,6 +56,13 @@ export class AccountComponent implements OnInit {
       },
       balance: {
         title: 'Balance',
+        valuePrepareFunction: (value) => this.currencyService.getFormattedValue('', value),
+        filter: false,
+      },
+      currency: {
+        title: 'Currency',
+        valuePrepareFunction: (value) => this.currencyService.getCurrencyDescription(value.name),
+        filter: false,
       },
       displayOnDashboard: {
         title: 'Display on dashboard',
@@ -72,6 +93,15 @@ export class AccountComponent implements OnInit {
       add: false,
       edit: false,
       delete: false,
+      columnTitle: 'Edit',
+      position: 'right',
+      class: 'action-column',
+      custom: [
+        {
+          name: 'editAction',
+          title: '<i class="ion-forward"></i>',
+        },
+      ],
     },
   };
 }

@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0e50e3d4-77be-41ce-b00c-d0ed8ab0abf4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="0e50e3d4-77be-41ce-b00c-d0ed8ab0abf4" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -154,7 +152,7 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1680" />
     <option name="height" value="987" />
@@ -359,7 +357,7 @@
       <workItem from="1597731814782" duration="677000" />
       <workItem from="1598199441827" duration="1088000" />
       <workItem from="1598803845976" duration="21978000" />
-      <workItem from="1599294474195" duration="10191000" />
+      <workItem from="1599294474195" duration="10202000" />
     </task>
     <servers />
   </component>
@@ -381,7 +379,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78940000" />
+    <option name="totallyTimeSpent" value="78951000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="987" extended-state="6" />
