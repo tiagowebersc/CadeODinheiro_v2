@@ -2,6 +2,7 @@ package lu.cadeodinheiro.domain.creditCardSetting;
 
 import lombok.Data;
 import lu.cadeodinheiro.domain.account.Account;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 
@@ -10,8 +11,10 @@ import javax.persistence.*;
 @Table(name = "creditCardSetting")
 public class CreditCardSetting {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id_creditCardSetting;
+    @GeneratedValue(generator="system-uuid")
+    @GenericGenerator(name="system-uuid", strategy = "uuid")
+    @Column(length = 40)
+    private String id_creditCardSetting;
 
     @OneToOne
     @JoinColumn(name = "account_id")

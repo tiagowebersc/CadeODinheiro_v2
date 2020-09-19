@@ -8,7 +8,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class AccountDTO {
-    private long idAccount;
+    private String idAccount;
     private String currency;
     private String accountType;
     private String name;

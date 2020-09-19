@@ -10,8 +10,8 @@ import java.util.Date;
 @Setter
 @AllArgsConstructor
 public class ReminderDTO {
-    private long idReminder;
-    private long category;
+    private String idReminder;
+    private String category;
     private String description;
     private double amount;
     private Date startDate;

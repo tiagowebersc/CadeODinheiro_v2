@@ -23,7 +23,7 @@ public class TransactionService {
         return transactionRepository.findAll();
     }
 
-    public  Transaction findById(long id){
+    public  Transaction findById(String id){
         return transactionRepository.findById(id).orElseThrow();
     }
 }

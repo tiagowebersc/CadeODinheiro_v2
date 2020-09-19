@@ -11,12 +11,19 @@ import { Router } from '@angular/router';
 })
 export class NewAccountComponent implements OnInit {
   form: FormGroup;
+  accountID: string = '';
 
   constructor(
     private router: Router,
     private accountService: AccountService,
     private toastrService: ToastrService,
-  ) { }
+  ) {
+    try {
+      if (this.router.getCurrentNavigation().extras.state.accountID != null) {
+        this.accountID = this.router.getCurrentNavigation().extras.state.accountID;
+      }
+    } catch (e) {}
+  }
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -27,6 +34,11 @@ export class NewAccountComponent implements OnInit {
       displayOnDashboard: new FormControl(''),
       active: new FormControl(''),
     });
+
+
+
+    this.form.patchValue({name: this.accountID});
+
   }
 
   onSubmit(newAccountItem) {

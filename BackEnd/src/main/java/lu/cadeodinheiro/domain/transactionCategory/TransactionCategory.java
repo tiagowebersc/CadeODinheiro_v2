@@ -4,6 +4,7 @@ import lombok.Data;
 import lu.cadeodinheiro.domain.category.Category;
 import lu.cadeodinheiro.domain.category.CategoryType;
 import lu.cadeodinheiro.domain.transaction.Transaction;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 
@@ -12,8 +13,10 @@ import javax.persistence.*;
 @Table(name = "transactionCategory")
 public class TransactionCategory {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idTransactionCategory;
+    @GeneratedValue(generator="system-uuid")
+    @GenericGenerator(name="system-uuid", strategy = "uuid")
+    @Column(length = 40)
+    private String idTransactionCategory;
 
     @ManyToOne
     @JoinColumn(name = "transaction_id")

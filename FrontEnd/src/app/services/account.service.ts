@@ -22,7 +22,7 @@ export class AccountService {
     return this.accountTypeMap.get(accountType);
   }
 
-   get() {
+   getAll() {
     return this.http.get<AccountResponse>('http://localhost:8080/accounts')
       .pipe(
         map(response => {
@@ -31,6 +31,17 @@ export class AccountService {
         catchError(this.handleError),
       );
   }
+
+  get(accountID: string) {
+    return this.http.get<Account>('http://localhost:8080/accounts' + accountID)
+      .pipe(
+        map(response => {
+          return response;
+        }),
+        catchError(this.handleError),
+      );
+  }
+
 
   save(account: Account) {
     return this.http.post<Account>('http://localhost:8080/accounts', account)

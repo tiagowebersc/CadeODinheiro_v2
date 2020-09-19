@@ -31,7 +31,7 @@ public class AccountService {
         return accountRepository.findAll();
     }
 
-    public  Account findById(long id){
+    public  Account findById(String id){
         return accountRepository.findById(id).orElseThrow();
     }
 
@@ -61,6 +61,6 @@ public class AccountService {
     }
 
     // todo: must be find by account id
-    public CreditCardSetting findCreditCardSettingById(long id){ return creditCardSettingRepository.findById(id).orElseThrow();
+    public CreditCardSetting findCreditCardSettingById(String id){ return creditCardSettingRepository.findById(id).orElseThrow();
     }
 }

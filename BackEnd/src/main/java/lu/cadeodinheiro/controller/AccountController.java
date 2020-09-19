@@ -16,7 +16,7 @@ public class AccountController {
     public ResponseEntity<?> findAll() { return ResponseEntity.ok(accountService.findAll()); }
 
     @GetMapping(value = "/accounts/{id}")
-    public ResponseEntity<?> findById(@PathVariable(value = "id") long id){
+    public ResponseEntity<?> findById(@PathVariable(value = "id") String id){
         return ResponseEntity.ok(accountService.findById(id));
     }
 

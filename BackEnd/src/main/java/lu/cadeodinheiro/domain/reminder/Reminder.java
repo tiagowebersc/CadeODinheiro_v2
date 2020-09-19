@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lu.cadeodinheiro.domain.category.Category;
 import lu.cadeodinheiro.domain.user.User;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -13,8 +14,10 @@ import java.util.Date;
 @Table(name = "reminder")
 public class Reminder {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idReminder;
+    @GeneratedValue(generator="system-uuid")
+    @GenericGenerator(name="system-uuid", strategy = "uuid")
+    @Column(length = 40)
+    private String idReminder;
 
     @JsonIgnore
     @ManyToOne

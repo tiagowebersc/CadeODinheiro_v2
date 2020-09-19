@@ -2,6 +2,7 @@ package lu.cadeodinheiro.domain.linkedTransactions;
 
 import lombok.Data;
 import lu.cadeodinheiro.domain.transaction.Transaction;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 
@@ -10,8 +11,10 @@ import javax.persistence.*;
 @Table(name = "linkedTransactions")
 public class LinkedTransactions {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idLinkedTransactions;
+    @GeneratedValue(generator="system-uuid")
+    @GenericGenerator(name="system-uuid", strategy = "uuid")
+    @Column(length = 40)
+    private String idLinkedTransactions;
 
     @ManyToOne
     @JoinColumn(name = "transaction_id_origin")

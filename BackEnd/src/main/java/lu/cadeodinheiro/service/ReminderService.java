@@ -27,12 +27,12 @@ public class ReminderService {
         return reminderRepository.findAll();
     }
 
-    public  Reminder findById(long id){ return reminderRepository.findById(id).orElseThrow(); }
+    public  Reminder findById(String id){ return reminderRepository.findById(id).orElseThrow(); }
 
     public Reminder save(ReminderDTO reminder){
         if (reminder == null ||
                 reminder.getReminderType() == null ||
-                reminder.getCategory() <= 0 ||
+                reminder.getCategory().isEmpty() ||
                 reminder.getDescription() == null ||
                 reminder.getReminderType().isEmpty() ||
                 reminder.getDescription().isEmpty() ||

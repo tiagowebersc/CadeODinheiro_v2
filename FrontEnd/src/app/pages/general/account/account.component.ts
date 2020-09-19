@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AccountService } from '../../../services/account.service';
 import { Router } from '@angular/router';
 import { CurrencyService } from '../../../services/currency.service';
+import { ToastrService } from '../../../services/toastr.service';
 
 @Component({
   selector: 'cod-account',
@@ -15,10 +16,11 @@ export class AccountComponent implements OnInit {
     private accountService: AccountService,
     private currencyService: CurrencyService,
     private router: Router,
+    private toastrService: ToastrService,
     ) { }
 
   ngOnInit() {
-    this.accountService.get()
+    this.accountService.getAll()
       .subscribe(accounts => {
         this.accounts = accounts;
       });
@@ -32,7 +34,12 @@ export class AccountComponent implements OnInit {
     switch ( event.action) {
       case 'editAction':
         // console.log(event.data.idAccount);
-        this.router.navigateByUrl('/pages/general/account/new');
+        // this.router.navigateByUrl('/pages/general/account/new');
+        if (event.data.idAccount != null) {
+          this.router.navigate(['/pages/general/account/new'], { state: { accountID: event.data.idAccount } });
+        } else {
+          this.toastrService.makeToastSucess('Problem to load the data!');
+        }
         break;
      case 'otherAction':
         // test

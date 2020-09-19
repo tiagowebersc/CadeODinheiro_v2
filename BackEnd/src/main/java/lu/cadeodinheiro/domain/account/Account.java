@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lu.cadeodinheiro.domain.currency.Currency;
 import lu.cadeodinheiro.domain.user.User;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -13,8 +14,10 @@ import java.util.Date;
 @Table(name = "account")
 public class Account {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idAccount;
+    @GeneratedValue(generator="system-uuid")
+    @GenericGenerator(name="system-uuid", strategy = "uuid")
+    @Column(length = 40)
+    private String idAccount;
 
     @JsonIgnore
     @ManyToOne

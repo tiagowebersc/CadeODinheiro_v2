@@ -23,7 +23,7 @@ public class CategoryService {
         return categoryRepository.findAll();
     }
 
-    public  Category findById(long id){
+    public  Category findById(String id){
         return categoryRepository.findById(id).orElseThrow();
     }
 
@@ -41,7 +41,7 @@ public class CategoryService {
         newCategory.setCategoryType(CategoryType.valueOf(category.getCategoryType()));
         newCategory.setDescription(category.getDescription());
         newCategory.setActive(category.isActive());
-        if (category.getUpperCategory() > 0){
+        if (!category.getUpperCategory().isEmpty()){
             Optional<Category> upperCategory = categoryRepository.findById(category.getUpperCategory());
             newCategory.setUpperCategory(upperCategory.get());
         }

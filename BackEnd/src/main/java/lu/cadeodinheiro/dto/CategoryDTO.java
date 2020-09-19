@@ -8,9 +8,9 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class CategoryDTO {
-    private long idCategory;
+    private String idCategory;
     private String categoryType;
     private String description;
-    private long upperCategory;
+    private String upperCategory;
     private boolean active;
 }

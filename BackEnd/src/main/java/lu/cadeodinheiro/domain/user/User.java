@@ -2,6 +2,7 @@ package lu.cadeodinheiro.domain.user;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -12,8 +13,10 @@ import java.util.Date;
 public class User {
     @Id
     @JsonIgnore
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private long idUser;
+    @GeneratedValue(generator="system-uuid")
+    @GenericGenerator(name="system-uuid", strategy = "uuid")
+    @Column(length = 40)
+    private String idUser;
 
     @JsonIgnore
     private Date creationDate;

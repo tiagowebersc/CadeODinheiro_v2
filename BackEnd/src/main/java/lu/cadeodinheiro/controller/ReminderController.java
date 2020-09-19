@@ -16,7 +16,7 @@ public class ReminderController {
     public ResponseEntity<?> findAll() { return ResponseEntity.ok(reminderService.findAll()); }
 
     @GetMapping(value = "/reminders/{id}")
-    public ResponseEntity<?> findById(@PathVariable(value = "id") long id){
+    public ResponseEntity<?> findById(@PathVariable(value = "id") String id){
         return ResponseEntity.ok(reminderService.findById(id));
     }
 
