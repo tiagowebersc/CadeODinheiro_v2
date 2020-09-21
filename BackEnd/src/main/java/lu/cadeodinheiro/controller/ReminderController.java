@@ -21,7 +21,13 @@ public class ReminderController {
     }
 
     @PostMapping(value ="/reminders")
-    public ResponseEntity<?> createAccount(@RequestBody ReminderDTO account){
-        return ResponseEntity.ok(reminderService.save(account));
+    public ResponseEntity<?> createReminder(@RequestBody ReminderDTO reminder){
+        return ResponseEntity.ok(reminderService.save(reminder));
+    }
+
+    @PutMapping(value ="/reminders/{id}")
+    public ResponseEntity<?> editReminder(@PathVariable(value = "id") String id, @RequestBody ReminderDTO reminder){
+        System.out.println(id);
+        return ResponseEntity.ok(reminderService.edit(id, reminder));
     }
 }

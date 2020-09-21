@@ -3,6 +3,7 @@ import { ReminderService } from '../../../services/reminder.service';
 import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
 import { CurrencyService } from '../../../services/currency.service';
+import { ToastrService } from '../../../services/toastr.service';
 
 @Component({
   selector: 'cod-reminder',
@@ -17,10 +18,11 @@ export class ReminderComponent implements OnInit {
     private currencyService: CurrencyService,
     private router: Router,
     private datepipe: DatePipe,
+    private toastrService: ToastrService,
     ) { }
 
   ngOnInit() {
-    this.reminderService.get()
+    this.reminderService.getAll()
       .subscribe(reminders => {
         this.reminders = reminders;
       });
@@ -33,7 +35,11 @@ export class ReminderComponent implements OnInit {
   onCustomAction(event) {
     switch ( event.action) {
       case 'editAction':
-        this.router.navigateByUrl('/pages/general/reminder/new');
+        if (event.data.idReminder != null) {
+          this.router.navigate(['/pages/general/reminder/new'], { state: { reminderID: event.data.idReminder } });
+        } else {
+          this.toastrService.makeToastSucess('Problem to load the data!');
+        }
         break;
      case 'otherAction':
         // test

@@ -23,7 +23,7 @@ public class CategoryController {
     }
 
     @PostMapping(value ="/categories")
-    public ResponseEntity<?> createAccount(@RequestBody CategoryDTO account){
-        return ResponseEntity.ok(categoryService.save(account));
+    public ResponseEntity<?> createCategory(@RequestBody CategoryDTO category){
+        return ResponseEntity.ok(categoryService.save(category));
     }
 }

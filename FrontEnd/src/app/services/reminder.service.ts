@@ -22,8 +22,18 @@ export class ReminderService {
     return this.reminderTypeMap.get(reminderType);
   }
 
-   get() {
+   getAll() {
     return this.http.get<ReminderResponse>('http://localhost:8080/reminders')
+      .pipe(
+        map(response => {
+          return response;
+        }),
+        catchError(this.handleError),
+      );
+  }
+
+  get(reminderID: string) {
+    return this.http.get<Reminder>('http://localhost:8080/reminders/' + reminderID)
       .pipe(
         map(response => {
           return response;
@@ -34,6 +44,13 @@ export class ReminderService {
 
   save(reminder: Reminder) {
     return this.http.post<Reminder>('http://localhost:8080/reminders', reminder)
+    .pipe(
+      catchError(this.handleError),
+    );
+  }
+
+  edit(reminderID: string, reminder: Reminder) {
+    return this.http.put<Reminder>('http://localhost:8080/reminders/' + reminderID, reminder)
     .pipe(
       catchError(this.handleError),
     );

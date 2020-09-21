@@ -35,6 +35,16 @@ public class AccountService {
         return accountRepository.findById(id).orElseThrow();
     }
 
+    public Account edit(String id, AccountDTO account){
+        if (id == null || id.isEmpty() || account.getIdAccount() == null || account.getIdAccount().isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Incomplete request!");
+        }
+        if (!id.equals(account.getIdAccount())){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Incorrect id!");
+        }
+        return save(account);
+    }
+
     public Account save(AccountDTO account){
         if (account == null ||
             account.getAccountType() == null ||
@@ -45,9 +55,18 @@ public class AccountService {
             account.getName().isEmpty()) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Incomplete request!");
         }
-        Account newAccount = new Account();
-        newAccount.setCreationDate(new Date(System.currentTimeMillis()));
-        newAccount.setUser(userService.getUser());
+        Account newAccount;
+        if (account.getIdAccount() == null || account.getIdAccount().isEmpty()) {
+            newAccount = new Account();
+            newAccount.setCreationDate(new Date(System.currentTimeMillis()));
+            newAccount.setUser(userService.getUser());
+        } else {
+            Optional<Account> currentAccount = accountRepository.findById(account.getIdAccount());
+            newAccount = currentAccount.get();
+            if (!newAccount.getUser().getIdUser().equals(userService.getUser().getIdUser())){
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Incompatible user!");
+            }
+        }
         Optional<Currency> currency = currencyRepository.findById(account.getCurrency());
         newAccount.setCurrency(currency.get());
         newAccount.setAccountType(AccountType.valueOf(account.getAccountType()));

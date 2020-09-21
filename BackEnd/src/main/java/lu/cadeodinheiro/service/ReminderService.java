@@ -29,6 +29,16 @@ public class ReminderService {
 
     public  Reminder findById(String id){ return reminderRepository.findById(id).orElseThrow(); }
 
+    public Reminder edit(String id, ReminderDTO reminder){
+        if (id == null || id.isEmpty() || reminder.getIdReminder() == null || reminder.getIdReminder().isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Incomplete request!");
+        }
+        if (!id.equals(reminder.getIdReminder())){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Incorrect id!");
+        }
+        return save(reminder);
+    }
+
     public Reminder save(ReminderDTO reminder){
         if (reminder == null ||
                 reminder.getReminderType() == null ||
@@ -39,9 +49,18 @@ public class ReminderService {
                 reminder.getAmount() <= 0) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Incomplete request!");
         }
-        Reminder newReminder = new Reminder();
-        newReminder.setCreationDate(new Date(System.currentTimeMillis()));
-        newReminder.setUser(userService.getUser());
+        Reminder newReminder;
+        if (reminder.getIdReminder() == null || reminder.getIdReminder().isEmpty()) {
+            newReminder = new Reminder();
+            newReminder.setCreationDate(new Date(System.currentTimeMillis()));
+            newReminder.setUser(userService.getUser());
+        } else {
+            Optional<Reminder> currentReminder = reminderRepository.findById(reminder.getCategory());
+            newReminder = currentReminder.get();
+            if (!newReminder.getUser().getIdUser().equals(userService.getUser().getIdUser())){
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Incompatible user!");
+            }
+        }
         Optional<Category> category = categoryRepository.findById(reminder.getCategory());
         newReminder.setCategory(category.get());
         newReminder.setReminderType(ReminderType.valueOf(reminder.getReminderType()));

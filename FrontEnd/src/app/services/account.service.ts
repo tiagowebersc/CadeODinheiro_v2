@@ -33,7 +33,7 @@ export class AccountService {
   }
 
   get(accountID: string) {
-    return this.http.get<Account>('http://localhost:8080/accounts' + accountID)
+    return this.http.get<Account>('http://localhost:8080/accounts/' + accountID)
       .pipe(
         map(response => {
           return response;
@@ -42,9 +42,15 @@ export class AccountService {
       );
   }
 
-
   save(account: Account) {
     return this.http.post<Account>('http://localhost:8080/accounts', account)
+    .pipe(
+      catchError(this.handleError),
+    );
+  }
+
+  edit(accountID: string, account: Account) {
+    return this.http.put<Account>('http://localhost:8080/accounts/' + accountID, account)
     .pipe(
       catchError(this.handleError),
     );
