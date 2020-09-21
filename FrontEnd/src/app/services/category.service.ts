@@ -20,7 +20,7 @@ export class CategoryService {
     return this.categoryTypeMap.get(categoryType);
   }
 
-   get() {
+   getAll() {
     return this.http.get<CategoryResponse>('http://localhost:8080/categories')
       .pipe(
         map(response => {

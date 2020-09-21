@@ -17,7 +17,9 @@
             <nb-option value="YR">Yearly</nb-option>
           </nb-select>
           <label class="margin-top" for="category">Category</label>
-          <input name="category" id="category" formControlName="category" type="text" nbInput fullWidth placeholder="Category">
+          <nb-select name="category" id="category" formControlName="category" fullWidth>
+            <nb-option *ngFor="let category of categories" value="{{category.idCategory}}">{{this.categoryService.getCategoryTypeDescription(category.categoryType) + ' - ' + category.description}}</nb-option>
+          </nb-select>
           <div style="display: flex;">
             <div style="width: 100%;">
                 <label class="margin-top" for="startDate">Start date</label>
@@ -34,7 +36,7 @@
             <nb-checkbox name="active" id="active" formControlName="active">Active?</nb-checkbox>
           </div>
           <button class="margin-top" nbButton type="submit" [disabled]="!form.valid">
-            Create new reminder
+            {{buttonDescription}}
           </button>
         </form>
         </nb-card-body>

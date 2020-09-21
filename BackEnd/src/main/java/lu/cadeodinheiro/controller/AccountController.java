@@ -27,7 +27,6 @@ public class AccountController {
 
     @PutMapping(value ="/accounts/{id}")
     public ResponseEntity<?> editAccount(@PathVariable(value = "id") String id, @RequestBody AccountDTO account){
-        System.out.println(id);
         return ResponseEntity.ok(accountService.edit(id, account));
     }
 }

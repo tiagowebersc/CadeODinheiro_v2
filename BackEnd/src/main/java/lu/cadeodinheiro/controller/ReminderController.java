@@ -27,7 +27,6 @@ public class ReminderController {
 
     @PutMapping(value ="/reminders/{id}")
     public ResponseEntity<?> editReminder(@PathVariable(value = "id") String id, @RequestBody ReminderDTO reminder){
-        System.out.println(id);
-        return ResponseEntity.ok(reminderService.edit(id, reminder));
+        return ResponseEntity.ok(reminderService .edit(id, reminder));
     }
 }

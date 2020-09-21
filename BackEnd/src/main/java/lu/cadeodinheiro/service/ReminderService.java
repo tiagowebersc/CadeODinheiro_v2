@@ -55,7 +55,7 @@ public class ReminderService {
             newReminder.setCreationDate(new Date(System.currentTimeMillis()));
             newReminder.setUser(userService.getUser());
         } else {
-            Optional<Reminder> currentReminder = reminderRepository.findById(reminder.getCategory());
+            Optional<Reminder> currentReminder = reminderRepository.findById(reminder.getIdReminder());
             newReminder = currentReminder.get();
             if (!newReminder.getUser().getIdUser().equals(userService.getUser().getIdUser())){
                 throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Incompatible user!");
