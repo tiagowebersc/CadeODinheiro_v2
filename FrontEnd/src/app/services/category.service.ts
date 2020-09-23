@@ -7,8 +7,10 @@ import { Category } from '../model/category';
 @Injectable({
   providedIn: 'root',
 })
+
 export class CategoryService {
   private categoryTypeMap: Map<string, string> = new Map();
+  private dataTreeNode: TreeNode<FSEntry>[];
 
   constructor(private http: HttpClient) {
     this.categoryTypeMap.set('EP', 'Expense');
@@ -18,6 +20,19 @@ export class CategoryService {
 
    getCategoryTypeDescription(categoryType: string) {
     return this.categoryTypeMap.get(categoryType);
+  }
+
+  getCategoryTree(categories: CategoryResponse) {
+    this.dataTreeNode = [];
+    this.categoryTypeMap.forEach((value: string, key: string) => {
+      const item = new FSEntry(0, key, value, true);
+      item.items = 1;
+      const itemAdd = new FSEntry(1, key, 'Add new ' + value, true);
+      itemAdd.action = 'add';
+
+      this.dataTreeNode.push({data: item, children: [{data: itemAdd}]});
+    });
+    return this.dataTreeNode;
   }
 
    getAll() {
@@ -45,4 +60,26 @@ export class CategoryService {
 
 interface CategoryResponse {
   categories: Category[];
+}
+
+export interface TreeNode<T> {
+  data: T;
+  children?: TreeNode<T>[];
+  expanded?: boolean;
+}
+
+export class FSEntry {
+  constructor(level: number, categoryType: string, description: string, active: boolean) {
+    this.level = level;
+    this.categoryType = categoryType;
+    this.description = description;
+    this.active = active;
+  }
+
+  level: number;
+  categoryType: string;
+  description: string;
+  active: boolean;
+  items?: number;
+  action?: string;
 }

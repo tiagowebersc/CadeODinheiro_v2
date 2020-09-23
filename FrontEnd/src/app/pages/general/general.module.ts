@@ -10,6 +10,7 @@ import {
   NbRadioModule,
   NbSelectModule,
   NbUserModule,
+  NbTreeGridModule,
 } from '@nebular/theme';
 import { ThemeModule } from '../../@theme/theme.module';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
@@ -18,6 +19,7 @@ import { GeneralRoutingModule } from './general-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CurrencyComponent } from './currency/currency.component';
 import { CategoryComponent } from './category/category.component';
+import { CategoryTreeViewComponent } from './category/category.component';
 import { ReminderComponent } from './reminder/reminder.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AccountComponent } from './account/account.component';
@@ -37,6 +39,7 @@ import { NewReminderComponent } from './reminder/new-reminder/new-reminder.compo
     NewAccountComponent,
     NewCategoryComponent,
     NewReminderComponent,
+    CategoryTreeViewComponent,
   ],
   imports: [
     ThemeModule,
@@ -53,6 +56,7 @@ import { NewReminderComponent } from './reminder/new-reminder/new-reminder.compo
     Ng2SmartTableModule,
     GeneralRoutingModule,
     ReactiveFormsModule,
+    NbTreeGridModule,
   ],
 })
 export class GeneralModule { }
