@@ -1,7 +1,7 @@
 import { Category } from './category';
 
 export class Reminder {
-    idReminder: number;
+    idReminder: string;
     category: Category;
     description: string;
     amount: number;

@@ -1,5 +1,5 @@
 export class Category {
-    idCategory: number;
+    idCategory: string;
     categoryType: string;
     description: string;
     upperCategory: Category;
