@@ -23,7 +23,17 @@ export class AccountService {
   }
 
    getAll() {
-    return this.http.get<AccountResponse>('http://localhost:8080/accounts')
+    return this.http.get<Account[]>('http://localhost:8080/accounts')
+      .pipe(
+        map(response => {
+          return response;
+        }),
+        catchError(this.handleError),
+      );
+  }
+
+  getDashboard() {
+    return this.http.get<Account[]>('http://localhost:8080/accounts/dashboard')
       .pipe(
         map(response => {
           return response;
@@ -60,8 +70,4 @@ export class AccountService {
     // console.log(error.message);
     return throwError('A data error occurred, please try again.');
   }
-}
-
-interface AccountResponse {
-  accounts: Account[];
 }

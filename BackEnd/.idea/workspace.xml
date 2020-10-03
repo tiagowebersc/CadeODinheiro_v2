@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0e50e3d4-77be-41ce-b00c-d0ed8ab0abf4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/controller/CategoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/service/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/service/CategoryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/app/pages/general/category/category.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/app/pages/general/category/category.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/controller/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/controller/AccountController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/repository/AccountRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/repository/AccountRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/service/AccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/service/AccountService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/app/pages/dashboard/dashboard.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/app/pages/dashboard/dashboard.component.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -32,7 +35,34 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/repository/AccountRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" column="71" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="71" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/service/AccountService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="192">
+              <caret line="34" column="60" lean-forward="true" selection-start-line="34" selection-start-column="60" selection-end-line="34" selection-end-column="60" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1171#1172#0" expanded="true" />
+                <element signature="e#1238#1239#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -90,7 +120,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/utils/AuthenticationUtil.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/domain/user/currency/Currency.java" />
         <option value="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/domain/currency/Currency.java" />
         <option value="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/repository/CurrencyRepository.java" />
@@ -111,7 +140,6 @@
         <option value="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/domain/category/categoryType.java" />
         <option value="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/controller/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/domain/reminder/ReminderType.java" />
-        <option value="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/repository/AccountRepository.java" />
         <option value="$PROJECT_DIR$/src/main/resources/db/migration/V1.1__CreateDBSchema.sql" />
         <option value="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/repository/UserRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/repository/LinkedTransactionsRepository.java" />
@@ -134,12 +162,14 @@
         <option value="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/dto/AccountDTO.java" />
         <option value="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/dto/CategoryDTO.java" />
         <option value="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/domain/user/User.java" />
-        <option value="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/service/AccountService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/controller/AccountController.java" />
         <option value="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/controller/ReminderController.java" />
         <option value="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/service/ReminderService.java" />
         <option value="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/controller/CategoryController.java" />
         <option value="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/service/CategoryService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/controller/AccountController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/repository/AccountRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/service/AccountService.java" />
       </list>
     </option>
   </component>
@@ -345,6 +375,15 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="cadeodinheiro" type="462c0819:PsiDirectoryNode" />
+              <item name="repository" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cadeodinheiro" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BackEnd" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cadeodinheiro" type="462c0819:PsiDirectoryNode" />
               <item name="service" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -482,7 +521,7 @@
       <workItem from="1600097652980" duration="5195000" />
       <workItem from="1600675443327" duration="2450000" />
       <workItem from="1600937380675" duration="23000" />
-      <workItem from="1601219005024" duration="1641000" />
+      <workItem from="1601219005024" duration="4642000" />
     </task>
     <servers />
   </component>
@@ -504,10 +543,11 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="88260000" />
+    <option name="totallyTimeSpent" value="91261000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="987" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26373628" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -595,7 +635,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/config/DevCorsConfiguration.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/domain/account.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/domain/currency/Currency.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -682,16 +721,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/repository/AccountRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="73" selection-start-line="7" selection-start-column="73" selection-end-line="7" selection-end-column="73" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/repository/LinkedTransactionsRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -716,16 +745,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="93" selection-start-line="7" selection-start-column="93" selection-end-line="7" selection-end-column="93" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/repository/CategoryRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="75" selection-start-line="7" selection-start-column="75" selection-end-line="7" selection-end-column="75" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -943,16 +962,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/domain/account/Account.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="19" column="4" lean-forward="true" selection-start-line="16" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/dto/ReminderDTO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -1040,16 +1049,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/service/AccountService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="67" column="13" lean-forward="true" selection-start-line="63" selection-start-column="12" selection-end-line="67" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/controller/CategoryController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -1060,12 +1059,63 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/controller/AccountController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/repository/CategoryRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="5" lean-forward="true" selection-start-line="27" selection-start-column="4" selection-end-line="30" selection-end-column="5" />
+        <state relative-caret-position="105">
+          <caret line="7" column="75" selection-start-line="7" selection-start-column="75" selection-end-line="7" selection-end-column="75" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/controller/AccountController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="22" column="39" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#954#955#0" expanded="true" />
+            <element signature="e#1011#1012#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/domain/account/Account.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="23" column="31" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/repository/AccountRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="71" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="71" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/service/AccountService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="34" column="60" lean-forward="true" selection-start-line="34" selection-start-column="60" selection-end-line="34" selection-end-column="60" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1171#1172#0" expanded="true" />
+            <element signature="e#1238#1239#0" expanded="true" />
           </folding>
         </state>
       </provider>

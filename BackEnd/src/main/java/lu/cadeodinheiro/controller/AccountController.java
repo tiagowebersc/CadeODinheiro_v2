@@ -20,6 +20,11 @@ public class AccountController {
         return ResponseEntity.ok(accountService.findById(id));
     }
 
+    @GetMapping(value = "/accounts/dashboard")
+    public ResponseEntity<?> getDashboard(){
+        return ResponseEntity.ok(accountService.getDashboardAccounts());
+    }
+
     @PostMapping(value ="/accounts")
     public ResponseEntity<?> createAccount(@RequestBody AccountDTO account){
         return ResponseEntity.ok(accountService.save(account));

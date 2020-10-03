@@ -117,10 +117,6 @@ export class CategoryService {
   }
 }
 
-interface CategoryResponse {
-  categories: Category[];
-}
-
 export interface TreeNode<T> {
   data: T;
   children?: TreeNode<T>[];

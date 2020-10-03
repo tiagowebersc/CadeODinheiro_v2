@@ -23,7 +23,7 @@ export class ReminderService {
   }
 
    getAll() {
-    return this.http.get<ReminderResponse>('http://localhost:8080/reminders')
+    return this.http.get<Reminder[]>('http://localhost:8080/reminders')
       .pipe(
         map(response => {
           return response;
@@ -60,8 +60,4 @@ export class ReminderService {
     // console.log(error.message);
     return throwError('A data error occurred, please try again.');
   }
-}
-
-interface ReminderResponse {
-  reminders: Reminder[];
 }

@@ -1,5 +1,26 @@
 <div class="row">
-  <nb-card>
-    <nb-card-body>Hello from cadê o dinheiro project.</nb-card-body>
-  </nb-card>
+  <div class="col-lg-6">
+    <nb-card>
+      <nb-card-header>Accounts</nb-card-header>
+      <nb-card-body>
+        <ng2-smart-table [settings]="settingsAccount" [source]="accounts"></ng2-smart-table>
+      </nb-card-body>
+    </nb-card>
+    <nb-card>
+      <nb-card-header>Reminders</nb-card-header>
+      <nb-card-body>
+        <ng2-smart-table [settings]="settingsReminder" [source]="reminders"></ng2-smart-table>
+      </nb-card-body>
+    </nb-card>
+
+  </div>
+
+  <div class="col-lg-6">
+    <nb-card>
+      <nb-card-header>Month expenses</nb-card-header>
+      <nb-card-body>
+        Month expensed
+      </nb-card-body>
+    </nb-card>
+  </div>
 </div>

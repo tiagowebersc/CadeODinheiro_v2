@@ -8,7 +8,7 @@ import { Currency } from '../model/currency';
   providedIn: 'root',
 })
 export class CurrencyService {
-  currenciesReponse: CurrencyResponse = null;
+  currenciesReponse: Currency[] = null;
 
   constructor(private http: HttpClient) {
    }
@@ -22,7 +22,7 @@ export class CurrencyService {
 
    getCurrency(currencyAcronym: string) {
      if (this.currenciesReponse != null && currencyAcronym != null && currencyAcronym.length > 0) {
-        this.currenciesReponse.currencies.forEach(function(value) {
+        this.currenciesReponse.forEach(function(value) {
           if (value.acronym.match(currencyAcronym)) {
             return value;
           }
@@ -55,7 +55,7 @@ export class CurrencyService {
    }
 
    get() {
-    return this.http.get<CurrencyResponse>('http://localhost:8080/currencies')
+    return this.http.get<Currency[]>('http://localhost:8080/currencies')
       .pipe(
         map(response => {
           return response;
@@ -73,8 +73,4 @@ export class CurrencyService {
     // console.log(error.message);
     return throwError('A data error occurred, please try again.');
   }
-}
-
-class CurrencyResponse {
-  currencies: Currency[];
 }

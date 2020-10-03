@@ -35,6 +35,10 @@ public class AccountService {
         return accountRepository.findById(id).orElseThrow();
     }
 
+    public  Iterable<Account> getDashboardAccounts(){
+        return accountRepository.findByUserAndIsActiveAndDisplayOnDashboardOrderByName(userService.getUser(),true, true);
+    }
+
     public Account edit(String id, AccountDTO account){
         if (id == null || id.isEmpty() || account.getIdAccount() == null || account.getIdAccount().isEmpty()) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Incomplete request!");
