@@ -26,4 +26,9 @@ public class CategoryController {
     public ResponseEntity<?> createCategory(@RequestBody CategoryDTO category){
         return ResponseEntity.ok(categoryService.save(category));
     }
+
+    @PutMapping(value ="/categories/{id}")
+    public ResponseEntity<?> editCategory(@PathVariable(value = "id") String id, @RequestBody CategoryDTO category){
+        return ResponseEntity.ok(categoryService.edit(id, category));
+    }
 }

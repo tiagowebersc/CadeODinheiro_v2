@@ -3,6 +3,7 @@ import { CategoryService, FSEntry } from '../../../services/category.service';
 import { Router } from '@angular/router';
 import { NbTreeGridDataSource, NbSortDirection, NbTreeGridDataSourceBuilder, NbSortRequest } from '@nebular/theme';
 import { Category } from '../../../model/category';
+import { ToastrService } from '../../../services/toastr.service';
 
 @Component({
   selector: 'cod-category',
@@ -12,7 +13,7 @@ import { Category } from '../../../model/category';
 export class CategoryComponent implements OnInit {
   categories: Category[];
   customColumn = 'description';
-  defaultColumns = [  ]; // 'active', 'items'
+  defaultColumns = [ 'items'  ]; // 'active', 'items'
   allColumns = [ this.customColumn, ...this.defaultColumns ];
   dataSource: NbTreeGridDataSource<FSEntry>;
   sortColumn: string;
@@ -21,6 +22,7 @@ export class CategoryComponent implements OnInit {
   constructor(
     private categoryService: CategoryService,
     private router: Router,
+    private toastrService: ToastrService,
     private dataSourceBuilder: NbTreeGridDataSourceBuilder<FSEntry>,
     ) { }
 
@@ -32,9 +34,23 @@ export class CategoryComponent implements OnInit {
       });
   }
 
-   public openNewPage() {
-     this.router.navigateByUrl('/pages/general/category/new');
+   public openNewPage(categoryType: String, upperCategoryID: String) {
+      // this.router.navigateByUrl('/pages/general/category/new');
+      if (categoryType != null && categoryType.length > 0) {
+        this.router.navigate(['/pages/general/category/new'], { state: { categoryType: categoryType , upperCategoryID: upperCategoryID } });
+      } else {
+        this.toastrService.makeToastSucess('Problem to load the data!');
+      }
    }
+
+   public openEditPage(categoryID: String) {
+    // this.router.navigateByUrl('/pages/general/category/new');
+    if (categoryID != null && categoryID.length > 0) {
+      this.router.navigate(['/pages/general/category/new'], { state: { categoryID: categoryID } });
+    } else {
+      this.toastrService.makeToastSucess('Problem to load the data!');
+    }
+ }
 
    updateSort(sortRequest: NbSortRequest): void {
     this.sortColumn = sortRequest.column;

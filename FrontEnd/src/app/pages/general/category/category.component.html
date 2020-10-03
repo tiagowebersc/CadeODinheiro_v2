@@ -4,11 +4,6 @@
     </nb-card-header>
   
     <nb-card-body>
-      <!-- <button class="margin-botton" nbButton (click)="openNewPage()">
-        Create new category
-      </button> -->
-
-
     <label class="search-label" for="search">Search:</label>
     <input nbInput [nbFilterInput]="dataSource" id="search" class="search-input">
 
@@ -23,9 +18,21 @@
         </th>
         <td nbTreeGridCell *nbTreeGridCellDef="let row">
           <cod-treeview-icon [action]="row.data.action" [items]="row.data.items" [expanded]="row.expanded"></cod-treeview-icon>
-          <label *ngIf="row.data['action'] !== 'add'">{{row.data[customColumn]}} </label>
-          <button *ngIf="row.data['action'] === 'add'" nbButton outline status="success" (click)="openNewPage()">
+          <!-- <label *ngIf="row.data['action'] !== 'add'">{{row.data[customColumn]}} </label> -->
+          <button *ngIf="row.data['level'] === 0" nbButton outline status="warning">
             {{row.data[customColumn]}}
+          </button>
+          <button *ngIf="row.data['level'] !== 0 && row.data['active']" nbButton outline status="primary">
+            {{row.data[customColumn]}}
+          </button>
+          <button *ngIf="row.data['level'] !== 0 && !row.data['active']" nbButton outline status="disabled">
+            {{row.data[customColumn]}}
+          </button>
+          <button *ngIf="row.data['level'] === 1 || row.data['level'] === 2" nbButton outline status="success" (click)="openEditPage(row.data['id'])">
+            <nb-icon icon="edit-outline"></nb-icon>
+          </button>
+          <button *ngIf="row.data['level'] === 0 || row.data['level'] === 1" nbButton outline status="success" (click)="openNewPage(row.data['categoryType'], row.data['id'])">
+            <nb-icon icon="plus-outline"></nb-icon>
           </button>
         </td>
       </ng-container>

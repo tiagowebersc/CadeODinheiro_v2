@@ -9,18 +9,11 @@
           <label for="description">Description</label>
           <input name="description" id="description" formControlName="description" type="text" nbInput fullWidth placeholder="Description">
           <label class="margin-top" for="categoryType">Category type</label>
-          <nb-select name="categoryType" id="categoryType" formControlName="categoryType" fullWidth>
-            <nb-option value="EP">Expense</nb-option>
-            <nb-option value="IC">Income</nb-option>
-            <nb-option value="TR">Transfer</nb-option>
-          </nb-select>
-          <label class="margin-top" for="upperCategory">Upper category</label>
-          <input name="upperCategory" id="upperCategory" formControlName="upperCategory" type="text" nbInput fullWidth placeholder="Upper category">
           <div class="margin-top">
             <nb-checkbox name="active" id="active" formControlName="active">Active?</nb-checkbox>
           </div>
           <button class="margin-top" nbButton type="submit" [disabled]="!form.valid">
-            Create new category
+            {{buttonDescription}}
           </button>
         </form>
         </nb-card-body>

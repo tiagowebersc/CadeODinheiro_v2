@@ -26,11 +26,7 @@ export class CategoryService {
     this.dataTreeNode = [];
     this.categoryTypeMap.forEach((value: string, key: string) => {
       const item = new FSEntry('', 0, key, value, true);
-      item.items = 1;
-      const itemAdd = new FSEntry('', 1, key, 'Add new ' + value, true);
-      itemAdd.action = 'add';
-
-      this.dataTreeNode.push({data: item, children: [{data: itemAdd}]});
+      this.dataTreeNode.push({data: item, children: []});
     });
 
     while (categories.length > 0) {
@@ -41,11 +37,12 @@ export class CategoryService {
           if (this.dataTreeNode[k].data.categoryType === cat.categoryType) {
             if (cat.upperCategory == null) {
               const itemCat = new FSEntry(cat.idCategory, 1, cat.categoryType, cat.description, cat.active);
+              this.dataTreeNode[k].data.items += 1;
               this.dataTreeNode[k].children.push({data: itemCat});
               categories.splice(i, 1);
               break;
             } else {
-              if (this.setLeaf(cat, 0, this.dataTreeNode[k])) {
+              if (this.setLeaf(cat, 1, this.dataTreeNode[k])) {
                 categories.splice(i, 1);
               } else {
                 i = i + 1;
@@ -66,6 +63,7 @@ export class CategoryService {
       } else {
         itemTree.children.push({data: itemCat});
       }
+      itemTree.data.items += 1;
       return true;
     }
     if (itemTree.children != null) {
@@ -89,8 +87,25 @@ export class CategoryService {
     );
   }
 
+  get(categoryID: string) {
+    return this.http.get<Category>('http://localhost:8080/categories/' + categoryID)
+      .pipe(
+        map(response => {
+          return response;
+        }),
+        catchError(this.handleError),
+      );
+  }
+
   save(category: Category) {
     return this.http.post<Category>('http://localhost:8080/categories', category)
+    .pipe(
+      catchError(this.handleError),
+    );
+  }
+
+  edit(categoryID: string, category: Category) {
+    return this.http.put<Account>('http://localhost:8080/categories/' + categoryID, category)
     .pipe(
       catchError(this.handleError),
     );
@@ -119,6 +134,7 @@ export class FSEntry {
     this.categoryType = categoryType;
     this.description = description;
     this.active = active;
+    this.items = 0;
   }
 
   id: string;
@@ -126,6 +142,5 @@ export class FSEntry {
   categoryType: string;
   description: string;
   active: boolean;
-  items?: number;
-  action?: string;
+  items: number;
 }
