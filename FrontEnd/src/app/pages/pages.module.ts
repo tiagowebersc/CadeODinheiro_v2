@@ -4,7 +4,6 @@ import { NbMenuModule } from '@nebular/theme';
 
 import { ThemeModule } from '../@theme/theme.module';
 import { PagesComponent } from './pages.component';
-import { DashboardModule } from './dashboard/dashboard.module';
 import { PagesRoutingModule } from './pages-routing.module';
 import { PieChartComponent } from './charts/pie-chart/pie-chart.component';
 import { BarChartComponent } from './charts/bar-chart/bar-chart.component';
@@ -14,7 +13,6 @@ import { BarChartComponent } from './charts/bar-chart/bar-chart.component';
     PagesRoutingModule,
     ThemeModule,
     NbMenuModule,
-    DashboardModule,
     NgxEchartsModule,
   ],
   declarations: [
