@@ -28,11 +28,15 @@ public class AccountService {
     private UserService userService;
 
     public Iterable<Account> findAll(){
-        return accountRepository.findAll();
+        return accountRepository.findAllByUser(userService.getUser());
     }
 
     public  Account findById(String id){
-        return accountRepository.findById(id).orElseThrow();
+        Account account = accountRepository.findById(id).orElseThrow();
+        if (!account.getUser().getIdUser().equals(userService.getUser().getIdUser())){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Incorrect id!");
+        }
+        return account;
     }
 
     public  Iterable<Account> getDashboardAccounts(){

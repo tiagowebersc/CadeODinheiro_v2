@@ -13,7 +13,7 @@ import { ToastrService } from '../../../services/toastr.service';
 export class CategoryComponent implements OnInit {
   categories: Category[];
   customColumn = 'description';
-  defaultColumns = [ 'items'  ]; // 'active', 'items'
+  defaultColumns = [ 'level', 'items'  ]; // 'active', 'items'
   allColumns = [ this.customColumn, ...this.defaultColumns ];
   dataSource: NbTreeGridDataSource<FSEntry>;
   sortColumn: string;

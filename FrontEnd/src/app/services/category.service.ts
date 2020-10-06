@@ -68,8 +68,7 @@ export class CategoryService {
     }
     if (itemTree.children != null) {
       for (let i = 0; i < itemTree.children.length; i ++) {
-        level ++;
-        if (this.setLeaf(cat, level, itemTree.children[i])) {
+        if (this.setLeaf(cat, level + 1, itemTree.children[i])) {
           return true;
         }
       }

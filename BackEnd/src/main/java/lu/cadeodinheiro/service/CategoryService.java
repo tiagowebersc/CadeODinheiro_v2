@@ -20,11 +20,15 @@ public class CategoryService {
     private UserService userService;
 
     public Iterable<Category> findAll(){
-        return categoryRepository.findAll();
+        return categoryRepository.findAllByUser(userService.getUser());
     }
 
     public  Category findById(String id){
-        return categoryRepository.findById(id).orElseThrow();
+        Category category = categoryRepository.findById(id).orElseThrow();
+        if (!category.getUser().getIdUser().equals(userService.getUser().getIdUser())) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Incorrect id!");
+        }
+        return category;
     }
 
     public Category edit(String id, CategoryDTO category){

@@ -24,10 +24,16 @@ public class ReminderService {
     private CategoryRepository categoryRepository;
 
     public Iterable<Reminder> findAll(){
-        return reminderRepository.findAll();
+        return reminderRepository.findAllByUser(userService.getUser());
     }
 
-    public  Reminder findById(String id){ return reminderRepository.findById(id).orElseThrow(); }
+    public  Reminder findById(String id){
+        Reminder reminder = reminderRepository.findById(id).orElseThrow();
+        if (!reminder.getUser().getIdUser().equals(userService.getUser().getIdUser())){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Incorrect id!");
+        }
+        return reminder;
+    }
 
     public Reminder edit(String id, ReminderDTO reminder){
         if (id == null || id.isEmpty() || reminder.getIdReminder() == null || reminder.getIdReminder().isEmpty()) {
