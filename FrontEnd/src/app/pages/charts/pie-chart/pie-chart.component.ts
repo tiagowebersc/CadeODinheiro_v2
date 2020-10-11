@@ -40,7 +40,7 @@ export class PieChartComponent implements OnInit, AfterViewInit, OnDestroy {
           {
             name: 'Countries',
             type: 'pie',
-            radius: '80%',
+            radius: '90%',
             center: ['50%', '50%'],
             data: [
               { value: 335, name: 'Germany' },
