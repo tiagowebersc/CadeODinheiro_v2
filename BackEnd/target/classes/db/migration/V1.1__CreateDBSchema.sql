@@ -128,6 +128,15 @@ CREATE TABLE IF NOT EXISTS `COD2`.`reminder` (
                                                          ON UPDATE NO ACTION)
     ENGINE = InnoDB;
 
+-- -----------------------------------------------------
+-- Table `COD2`.`tag`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `COD2`.`tag` (
+                                            `id_tag` VARCHAR(40) NOT NULL,
+                                            `description` VARCHAR(50) NOT NULL,
+                                            PRIMARY KEY (`id_tag`),
+                                            UNIQUE INDEX `description_UNIQUE` (`description` ASC))
+    ENGINE = InnoDB;
 
 -- -----------------------------------------------------
 -- Table `COD2`.`transaction`
@@ -155,6 +164,27 @@ CREATE TABLE IF NOT EXISTS `COD2`.`transaction` (
                                                             ON UPDATE NO ACTION)
     ENGINE = InnoDB;
 
+-- -----------------------------------------------------
+-- Table `COD2`.`transactionTag`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `COD2`.`transactionTag` (
+                                                       `id_transaction_tag` VARCHAR(40) NOT NULL,
+                                                       `transaction_id` VARCHAR(40) NOT NULL,
+                                                       `tag_id` VARCHAR(40) NOT NULL,
+                                                       PRIMARY KEY (`id_transaction_tag`),
+                                                       INDEX `fk_transactionTag_transaction1_idx` (`transaction_id` ASC),
+                                                       INDEX `fk_transactionTag_tag1_idx` (`tag_id` ASC),
+                                                       CONSTRAINT `fk_transactionTag_transaction1`
+                                                           FOREIGN KEY (`transaction_id`)
+                                                               REFERENCES `COD2`.`transaction` (`id_transaction`)
+                                                               ON DELETE NO ACTION
+                                                               ON UPDATE NO ACTION,
+                                                       CONSTRAINT `fk_transactionTag_tag1`
+                                                           FOREIGN KEY (`tag_id`)
+                                                               REFERENCES `COD2`.`tag` (`id_tag`)
+                                                               ON DELETE NO ACTION
+                                                               ON UPDATE NO ACTION)
+    ENGINE = InnoDB;
 
 -- -----------------------------------------------------
 -- Table `COD2`.`transactionAccount`
