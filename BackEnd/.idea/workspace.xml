@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0e50e3d4-77be-41ce-b00c-d0ed8ab0abf4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V1.1__CreateDBSchema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V1.1__CreateDBSchema.sql" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -35,8 +34,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/domain/tag/Tag.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+            <state relative-caret-position="255">
+              <caret line="20" selection-start-line="20" selection-end-line="20" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -190,6 +189,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -287,8 +288,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -328,7 +327,18 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.CadêODinheiroApplication">
+  <component name="RunManager" selected="Spring Boot.CadeODinheiroApplication">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="lu.cadeodinheiro.domain.category in cadeodinheiro" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="cadeodinheiro" />
       <extension name="coverage">
@@ -357,6 +367,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="CadeODinheiroApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="BackEnd" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="lu.cadeodinheiro.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="lu.cadeodinheiro.CadeODinheiroApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CadêODinheiroApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="cadeodinheiro" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="lu.cadeodinheiro.CadeODinheiroApplication" />
@@ -367,6 +390,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Spring Boot.CadeODinheiroApplication" />
         <item itemvalue="JUnit.lu.cadeodinheiro.domain.transaction in cadeodinheiro" />
         <item itemvalue="JUnit.lu.cadeodinheiro.domain.category in cadeodinheiro" />
       </list>
@@ -405,7 +429,9 @@
       <workItem from="1600937380675" duration="23000" />
       <workItem from="1601219005024" duration="4642000" />
       <workItem from="1601882134102" duration="7103000" />
-      <workItem from="1602682416329" duration="964000" />
+      <workItem from="1602682416329" duration="1052000" />
+      <workItem from="1602863536144" duration="660000" />
+      <workItem from="1604308747555" duration="19000" />
     </task>
     <servers />
   </component>
@@ -427,13 +453,13 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="99328000" />
+    <option name="totallyTimeSpent" value="100095000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="987" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26984128" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2759463" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -971,8 +997,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/domain/tag/Tag.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+        <state relative-caret-position="255">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
