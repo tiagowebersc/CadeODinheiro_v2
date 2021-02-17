@@ -1,8 +1,7 @@
-package lu.cadeodinheiro.domain.account;
+package lu.cadeodinheiro.domain.budget;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
-import lu.cadeodinheiro.domain.currency.Currency;
 import lu.cadeodinheiro.domain.user.User;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -11,13 +10,13 @@ import java.util.Date;
 
 @Data
 @Entity
-@Table(name = "account")
-public class Account {
+@Table(name = "budget")
+public class Budget {
     @Id
     @GeneratedValue(generator="system-uuid")
     @GenericGenerator(name="system-uuid", strategy = "uuid")
     @Column(length = 40)
-    private String idAccount;
+    private String idBudget;
 
     @JsonIgnore
     @ManyToOne
@@ -27,26 +26,17 @@ public class Account {
     @JsonIgnore
     private Date creationDate;
 
-    @ManyToOne
-    @JoinColumn(name = "currency_acronym")
-    private Currency currency;
-
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private AccountType accountType;
+    private BudgetType budgetType;
+
 
     @Column(length = 60, nullable = false)
-    private String name;
-
-    @Column(length = 200, nullable = false)
     private String description;
 
     @Column(precision=16, scale=2)
-    private double balance;
+    private double amount;
 
-    private boolean displayOnDashboard;
-
-    private boolean isActive;
-
-    private int creditCardBillClosingDay;
+    @Column(length = 200)
+    private String comment;
 }

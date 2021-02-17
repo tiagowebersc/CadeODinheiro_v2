@@ -2,11 +2,9 @@ package lu.cadeodinheiro.service;
 
 import lu.cadeodinheiro.domain.account.Account;
 import lu.cadeodinheiro.domain.account.AccountType;
-import lu.cadeodinheiro.domain.creditCardSetting.CreditCardSetting;
 import lu.cadeodinheiro.domain.currency.Currency;
 import lu.cadeodinheiro.dto.AccountDTO;
 import lu.cadeodinheiro.repository.AccountRepository;
-import lu.cadeodinheiro.repository.CreditCardSettingRepository;
 import lu.cadeodinheiro.repository.CurrencyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,8 +18,6 @@ import java.util.Optional;
 public class AccountService {
     @Autowired
     private AccountRepository accountRepository;
-    @Autowired
-    private CreditCardSettingRepository creditCardSettingRepository;
     @Autowired
     private CurrencyRepository currencyRepository;
     @Autowired
@@ -87,7 +83,4 @@ public class AccountService {
         return accountRepository.save(newAccount);
     }
 
-    // todo: must be find by account id
-    public CreditCardSetting findCreditCardSettingById(String id){ return creditCardSettingRepository.findById(id).orElseThrow();
-    }
 }

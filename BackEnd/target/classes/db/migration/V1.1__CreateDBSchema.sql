@@ -38,6 +38,7 @@ CREATE TABLE IF NOT EXISTS `COD2`.`account` (
                                                 `balance` DECIMAL(16,2) NOT NULL,
                                                 `display_on_dashboard` TINYINT(1) NOT NULL,
                                                 `is_active` TINYINT(1) NOT NULL,
+                                                `credit_card_bill_closing_day` INT,
                                                 PRIMARY KEY (`id_account`),
                                                 INDEX `fk_account_user_idx` (`user_id` ASC),
                                                 INDEX `fk_account_currency_idx` (`currency_acronym` ASC),
@@ -78,24 +79,6 @@ CREATE TABLE IF NOT EXISTS `COD2`.`category` (
                                                          REFERENCES `COD2`.`category` (`id_category`)
                                                          ON DELETE NO ACTION
                                                          ON UPDATE NO ACTION)
-    ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `COD2`.`creditCardSetting`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `COD2`.`creditCardSetting` (
-                                                          `id_credit_card_setting` VARCHAR(40) NOT NULL,
-                                                          `account_id` VARCHAR(40) NOT NULL,
-                                                          `bill_closing_day` INT NOT NULL,
-                                                          INDEX `fk_CreditCardSetting_account_idx` (`account_id` ASC),
-                                                          PRIMARY KEY (`id_credit_card_setting`),
-                                                          UNIQUE INDEX `account_id_UNIQUE` (`account_id` ASC),
-                                                          CONSTRAINT `fk_CreditCardSetting_account`
-                                                              FOREIGN KEY (`account_id`)
-                                                                  REFERENCES `COD2`.`account` (`id_account`)
-                                                                  ON DELETE NO ACTION
-                                                                  ON UPDATE NO ACTION)
     ENGINE = InnoDB;
 
 
@@ -172,8 +155,8 @@ CREATE TABLE IF NOT EXISTS `COD2`.`transactionTag` (
                                                        `transaction_id` VARCHAR(40) NOT NULL,
                                                        `tag_id` VARCHAR(40) NOT NULL,
                                                        PRIMARY KEY (`id_transaction_tag`),
-                                                       INDEX `fk_transactionTag_transaction1_idx` (`transaction_id` ASC),
-                                                       INDEX `fk_transactionTag_tag1_idx` (`tag_id` ASC),
+                                                       INDEX `fk_transactionTag_transaction_idx` (`transaction_id` ASC),
+                                                       INDEX `fk_transactionTag_tag_idx` (`tag_id` ASC),
                                                        CONSTRAINT `fk_transactionTag_transaction1`
                                                            FOREIGN KEY (`transaction_id`)
                                                                REFERENCES `COD2`.`transaction` (`id_transaction`)
@@ -256,4 +239,48 @@ CREATE TABLE IF NOT EXISTS `COD2`.`linkedTransactions` (
                                                                    REFERENCES `COD2`.`transaction` (`id_transaction`)
                                                                    ON DELETE NO ACTION
                                                                    ON UPDATE NO ACTION)
+    ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `COD2`.`budget`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `COD2`.`budget` (
+                                               `id_budget` VARCHAR(40) NOT NULL,
+                                               `user_id` VARCHAR(40) NOT NULL,
+                                               `creation_date` DATE NOT NULL,
+                                               `budget_type` VARCHAR(2) NOT NULL COMMENT 'MT - Monthly, BM - Bimonthly, QT - Quarterly, SM - Semiannual, YR - Yearly',
+                                               `description` VARCHAR(60) NOT NULL,
+                                               `amount` DECIMAL(16,2) NOT NULL,
+                                               `comment` VARCHAR(200) NULL,
+                                               PRIMARY KEY (`id_budget`),
+                                               INDEX `fk_budget_user_idx` (`user_id` ASC),
+                                               CONSTRAINT `fk_budget_user`
+                                                   FOREIGN KEY (`user_id`)
+                                                       REFERENCES `COD2`.`user` (`id_user`)
+                                                       ON DELETE NO ACTION
+                                                       ON UPDATE NO ACTION)
+    ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `COD2`.`budgetCategory`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `COD2`.`budgetCategory` (
+                                                       `id_budget_category` VARCHAR(40) NOT NULL,
+                                                       `budget_id` VARCHAR(40) NOT NULL,
+                                                       `category_id` VARCHAR(40) NOT NULL,
+                                                       PRIMARY KEY (`id_budget_category`),
+                                                       INDEX `fk_budgetCategory_budget_idx` (`budget_id` ASC),
+                                                       INDEX `fk_budgetCategory_category_idx` (`category_id` ASC),
+                                                       CONSTRAINT `fk_budgetCategory_budget`
+                                                           FOREIGN KEY (`budget_id`)
+                                                               REFERENCES `COD2`.`budget` (`id_budget`)
+                                                               ON DELETE NO ACTION
+                                                               ON UPDATE NO ACTION,
+                                                       CONSTRAINT `fk_budgetCategory_category`
+                                                           FOREIGN KEY (`category_id`)
+                                                               REFERENCES `COD2`.`category` (`id_category`)
+                                                               ON DELETE NO ACTION
+                                                               ON UPDATE NO ACTION)
     ENGINE = InnoDB;
