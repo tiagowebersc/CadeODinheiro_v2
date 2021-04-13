@@ -33,6 +33,6 @@ public class ApiError{
         this.error = status.name();
         this.message = message;
         this.path = path;
-        errors = Arrays.asList(error);
+        this.errors = Arrays.asList(error);
     }
 }

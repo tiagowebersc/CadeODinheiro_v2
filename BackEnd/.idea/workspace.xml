@@ -5,21 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0e50e3d4-77be-41ce-b00c-d0ed8ab0abf4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/domain/budget/Budget.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/domain/budget/BudgetType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/domain/budgetCategory/BudgetCategory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/domain/transactionTag/TransactionTag.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/repository/BudgetRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/service/BudgetService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/domain/account/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/domain/account/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/domain/creditCardSetting/CreditCardSetting.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/repository/CreditCardSettingRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/service/AccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/service/AccountService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V1.1__CreateDBSchema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V1.1__CreateDBSchema.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/db/migration/V1.1__CreateDBSchema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/db/migration/V1.1__CreateDBSchema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/config/JwtRequestFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/config/JwtRequestFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/exception/ApiError.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lu/cadeodinheiro/exception/ApiError.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Docs/DB/CODv2.mwb" beforeDir="false" afterPath="$PROJECT_DIR$/../Docs/DB/CODv2.mwb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Docs/DB/CODv2.mwb.bak" beforeDir="false" afterPath="$PROJECT_DIR$/../Docs/DB/CODv2.mwb.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Docs/User Stories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Docs/User Stories.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -309,17 +300,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.CadeODinheiroApplication">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="lu.cadeodinheiro.domain.category in cadeodinheiro" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="cadeodinheiro" />
       <extension name="coverage">
@@ -417,7 +397,11 @@
       <workItem from="1608819727492" duration="453000" />
       <workItem from="1609842462155" duration="62000" />
       <workItem from="1609842572320" duration="49000" />
-      <workItem from="1613493173569" duration="3017000" />
+      <workItem from="1613493173569" duration="4456000" />
+      <workItem from="1614865944400" duration="651000" />
+      <workItem from="1614933963813" duration="786000" />
+      <workItem from="1616074191133" duration="1073000" />
+      <workItem from="1617782055422" duration="561000" />
     </task>
     <servers />
   </component>

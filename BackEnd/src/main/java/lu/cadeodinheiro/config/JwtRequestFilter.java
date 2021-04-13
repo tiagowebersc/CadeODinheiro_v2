@@ -32,10 +32,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
             throws ServletException, IOException {
 
         if (!request.getRequestURL().toString().endsWith("/authenticate") && !request.getRequestURL().toString().endsWith("/register")) {
-            //System.out.println(request.getRequestURL());
-            //System.out.println("request: " + request.getH());
             final String requestTokenHeader = request.getHeader("Authorization");
-            //System.out.println("requestToken: " + requestTokenHeader);
 
             String username = null;
             String jwtToken = null;
